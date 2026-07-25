@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { Stethoscope, UploadCloud, AlertTriangle, CheckCircle2, ChevronDown, ChevronUp, Binary, Crosshair } from "lucide-react";
+import { SampleEvidenceCanvas } from "./SampleEvidenceCanvas";
+
 
 interface ForensicLabModalProps {
   language: "en" | "kn";
@@ -49,8 +51,12 @@ export const ForensicLabModal: React.FC<ForensicLabModalProps> = ({ language, on
 
       {/* Workspace */}
       <div className="p-8 space-y-6 flex-1 overflow-y-auto bg-slate-50/50 dark:bg-slate-950/50">
+        {/* Sample Evidence Canvas Gallery */}
+        <SampleEvidenceCanvas language={language} />
+
         {/* Upload Zone */}
         <div className="p-8 rounded-3xl border-2 border-dashed border-cyan-500/40 bg-white/80 dark:bg-slate-900/60 flex flex-col items-center justify-center text-center shadow-md">
+
           <UploadCloud className="w-10 h-10 text-cyan-600 dark:text-cyan-400 mb-3 animate-bounce" />
           <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">
             {language === "kn"

@@ -7,7 +7,16 @@ const { verifyRole, authenticate } = require('./auth');
 
 const app = express();
 app.use(cors());
+
+app.use((req, res, next) => {
+  if (req.url.startsWith('/server/api_gateway')) {
+    req.url = req.url.replace('/server/api_gateway', '') || '/';
+  }
+  next();
+});
+
 app.use(express.json());
+
 
 // Initialize Zoho Catalyst Cache Segment for Context & Forecast Caching
 let cacheSegment = null;

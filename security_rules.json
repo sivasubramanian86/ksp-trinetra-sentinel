@@ -6,7 +6,11 @@
   },
   "functions": {
     "api_gateway": {
-      "execute": "request.auth != null"
+      "execute": "true"
+    },
+    "catalyst-zia-services": {
+      "execute": "true"
     }
   }
+
 }

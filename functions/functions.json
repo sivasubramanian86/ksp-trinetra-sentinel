@@ -5,5 +5,20 @@
     "stack": "node18",
     "main": "index.js",
     "path": "functions/api_gateway"
+  },
+  {
+    "name": "catalyst-zia-services",
+    "type": "AdvancedIO",
+    "stack": "node16",
+    "main": "index.js",
+    "path": "functions/catalyst-zia-services"
+  },
+  {
+    "name": "hotspot_alert_cron",
+    "type": "cron",
+    "stack": "node18",
+    "main": "index.js",
+    "path": "functions/hotspot_alert_cron"
   }
 ]
+

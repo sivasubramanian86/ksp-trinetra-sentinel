@@ -11,7 +11,15 @@ const FileUploadHandler = require('./handlers/FileUploadHandler');
 
 const app = express();
 
+app.use((req, res, next) => {
+	if (req.url.startsWith('/server/catalyst-zia-services')) {
+		req.url = req.url.replace('/server/catalyst-zia-services', '') || '/';
+	}
+	next();
+});
+
 app.use(express.json());
+
 
 app.use((request, response, next) => {
 	try {

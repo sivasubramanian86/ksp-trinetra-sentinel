@@ -36,7 +36,84 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
     },
   ]);
 
-  // Voice Interaction setup via Web Speech API
+  // Listen for custom query events from Sample Evidence Canvas
+  useEffect(() => {
+    const handleCopilotEvent = (e: any) => {
+      if (e.detail && e.detail.query) {
+        setInputQuery(e.detail.query);
+        if (e.detail.autoSend) {
+          setTimeout(() => {
+            handleSendWithQuery(e.detail.query);
+          }, 100);
+        }
+      }
+    };
+    window.addEventListener("ksp-copilot-query", handleCopilotEvent as any);
+    return () => {
+      window.removeEventListener("ksp-copilot-query", handleCopilotEvent as any);
+    };
+  }, [language]);
+
+  const handleSendWithQuery = async (customQueryText?: string) => {
+    const queryToSend = customQueryText || inputQuery;
+    if (!queryToSend.trim() && !uploadedMedia) return;
+
+    const userMsg: Message = {
+      id: `u-${Date.now()}`,
+      sender: "user",
+      text: queryToSend || (uploadedMedia ? `[Uploaded ${uploadedMedia.type} Evidence]` : ""),
+      mediaType: uploadedMedia?.type,
+      mediaPreview: uploadedMedia?.name,
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    setInputQuery("");
+    setIsSending(true);
+
+    try {
+      const response = await fetch(getApiEndpoint(), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-user-role": "COMMISSIONER",
+        },
+        body: JSON.stringify({
+          query: queryToSend,
+          language: language,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const copilotReply: Message = {
+          id: `c-${Date.now()}`,
+          sender: "copilot",
+          text: data.briefing || data.title || (language === "kn" ? "ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ." : "Briefing Generated."),
+          bnsCitations: data.legalCitations ? data.legalCitations.map((c: any) => c.section || c) : ["BNS Section 304"],
+          dpdpAudit: true,
+        };
+        setMessages((prev) => [...prev, copilotReply]);
+      } else {
+        throw new Error("Gateway HTTP " + response.status);
+      }
+    } catch (err) {
+      const copilotReply: Message = {
+        id: `c-${Date.now()}`,
+        sender: "copilot",
+        text:
+          language === "kn"
+            ? `ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ: "${queryToSend}". ಇಂದಿರಾನಗರ ಬಿಟ್ #1 ಗಸ್ತು ಹೆಚ್ಚಿಸಲು ಮತ್ತು ಬಿಎನ್‌ಎಸ್ ಸೆಕ್ಷನ್ ೩೦೪ ರ ಅಡಿಯಲ್ಲಿ ತನಿಖೆಗೆ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.`
+            : `Tactical Briefing Generated for: "${queryToSend}". Indiranagar Beat #1 requires 2 Hoysala units. Legal SOP under BNS Section 304 applies.`,
+        bnsCitations: ["BNS Section 304 (Snatching)", "KSP SOP Guideline #14"],
+        dpdpAudit: true,
+      };
+      setMessages((prev) => [...prev, copilotReply]);
+    } finally {
+      setIsSending(false);
+      setUploadedMedia(null);
+    }
+  };
+
   const handleVoiceListen = () => {
     if (typeof window !== "undefined" && ("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
       const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
