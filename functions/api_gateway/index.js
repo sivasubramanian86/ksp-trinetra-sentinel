@@ -15,6 +15,20 @@ try {
   const catalystApp = catalyst.initialize();
   cacheSegment = catalystApp.cache().segment('ksp_context_cache');
   console.log('[+] Catalyst Cache segment initialized: ksp_context_cache');
+
+  // Seed default context caching items into Catalyst Cache
+  cacheSegment.put('ksp_bns_2023_legal_sops', JSON.stringify({
+    act: "Bharatiya Nyaya Sanhita (BNS 2023)",
+    section: "Section 304 (Snatching / Robbery)",
+    guidelines: "Deploy 2 Hoysala patrol units immediately. Anonymize complainant PII."
+  }), 86400).catch(e => console.log(e.message));
+
+  cacheSegment.put('hotspot_baseline_indiranagar', JSON.stringify({
+    beat: "BNG-INDIRANAGAR-B1",
+    baselineRisk: 78.5,
+    lastScanned: new Date().toISOString()
+  }), 86400).catch(e => console.log(e.message));
+
 } catch (e) {
   console.log('[*] Operating in local memory cache fallback mode');
 }
@@ -23,7 +37,6 @@ const memoryCache = new Map();
 
 // Context Caching Helper
 async function getCachedOrFetch(key, ttlSeconds, fetcherFn) {
-  // 1. Check Catalyst Cache Segment
   if (cacheSegment) {
     try {
       const cachedVal = await cacheSegment.get(key);
@@ -36,7 +49,6 @@ async function getCachedOrFetch(key, ttlSeconds, fetcherFn) {
     }
   }
 
-  // 2. Check Memory Fallback Cache
   if (memoryCache.has(key)) {
     const item = memoryCache.get(key);
     if (Date.now() < item.expiry) {
@@ -44,7 +56,6 @@ async function getCachedOrFetch(key, ttlSeconds, fetcherFn) {
     }
   }
 
-  // 3. Execute Fetcher & Store in Cache
   const freshData = await fetcherFn();
 
   if (cacheSegment) {
@@ -141,7 +152,6 @@ app.post('/api/chat', verifyRole(['COMMISSIONER', 'ANALYST', 'PATROL_OFFICER']),
   }
 });
 
-// Local dev server listener
 const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {

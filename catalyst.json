@@ -9,5 +9,61 @@
       "catalyst-zia-services",
       "hotspot_alert_cron"
     ]
+  },
+  "cache": {
+    "segments": [
+      {
+        "name": "ksp_context_cache"
+      }
+    ]
+  },
+  "filestore": {
+    "buckets": [
+      {
+        "name": "ksp_forensic_evidence"
+      }
+    ]
+  },
+  "cron": {
+    "crons": [
+      {
+        "name": "hotspot_alert_cron",
+        "cron_detail": {
+          "cron_type": "recurring",
+          "cron_expression": "0 0 * * *",
+          "function_name": "hotspot_alert_cron"
+        }
+      }
+    ]
+  },
+  "datastore": {
+    "tables": [
+      {
+        "name": "CaseMaster",
+        "columns": [
+          { "name": "CrimeNo", "type": "var_char", "max_length": 50 },
+          { "name": "CaseNo", "type": "var_char", "max_length": 50 },
+          { "name": "BriefFacts", "type": "large_text" },
+          { "name": "latitude", "type": "double" },
+          { "name": "longitude", "type": "double" }
+        ]
+      },
+      {
+        "name": "Accused",
+        "columns": [
+          { "name": "AccusedName", "type": "var_char", "max_length": 150 },
+          { "name": "PersonID", "type": "var_char", "max_length": 50 }
+        ]
+      },
+      {
+        "name": "Victim",
+        "columns": [
+          { "name": "VictimName", "type": "var_char", "max_length": 150 }
+        ]
+      }
+    ]
+  },
+  "security_rules": {
+    "file": "security_rules.json"
   }
 }
