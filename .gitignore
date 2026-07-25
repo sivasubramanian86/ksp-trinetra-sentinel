@@ -1,0 +1,41 @@
+# Node dependencies & build output
+node_modules/
+.next/
+out/
+build/
+dist/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.coverage
+*.egg-info/
+models/saved/*.pkl
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Catalyst
+.catalyst/
+catalyst-runner.json
+
+# Internal prompts & task tracking
+prompts/
+tasks/
+tmp/
+.gemini/
+
+# System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,15 @@
+{
+  "client": {
+    "source": "client/out",
+    "build": "npm run build --prefix client"
+  },
+  "functions": {
+    "targets": [
+      "functions/api_gateway"
+    ],
+    "ignore": [
+      ".git",
+      "node_modules"
+    ]
+  }
+}

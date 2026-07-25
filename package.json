@@ -1,0 +1,25 @@
+{
+  "name": "ksp-trinetra-sentinel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KSP Trinetra Sentinel - Multi-Layer City Brain for Karnataka State Police",
+  "scripts": {
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "dev:gateway": "npm --prefix functions/api_gateway run dev",
+    "test:gateway": "node functions/api_gateway/tests/test_mcp_tools.js",
+    "catalyst:deploy": "catalyst deploy"
+  },
+  "keywords": [
+    "ksp",
+    "trinetra-sentinel",
+    "zoho-catalyst",
+    "nextjs",
+    "fastapi",
+    "postgis",
+    "graphrag",
+    "mcp"
+  ],
+  "author": "KSP Datathon Team",
+  "license": "MIT"
+}
