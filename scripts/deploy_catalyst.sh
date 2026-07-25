@@ -2,7 +2,8 @@
 # Zoho Catalyst Deployment Script (Linux/macOS)
 
 echo "=========================================================="
-echo "[+] Building and Deploying KSP Trinetra Sentinel to Catalyst Project ID: 45111000000013054"
+echo "[+] Building and Deploying KSP Trinetra Sentinel to Catalyst (India DC: --dc in)"
+echo "Project ID: 45111000000013054 (KSP-Trinetra-Sentinel)"
 echo "=========================================================="
 
 # Step 1: Build Next.js static client export
@@ -18,9 +19,9 @@ else
     exit 1
 fi
 
-# Step 3: Execute Catalyst Deploy
-echo "[3/3] Deploying Web Client to Zoho Catalyst..."
-catalyst deploy --only client --project 45111000000013054
+# Step 3: Execute Catalyst Deploy to India DC (--dc in) for client AND functions
+echo "[3/3] Deploying Web Client & Express Gateway Functions to Zoho Catalyst India Data Center (--dc in)..."
+catalyst deploy --dc in --project 45111000000013054
 
 echo ""
-echo "[OK] Production Deployment to Zoho Catalyst Complete!"
+echo "[OK] Production Deployment to Zoho Catalyst India DC Complete!"

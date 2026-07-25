@@ -3,14 +3,11 @@
     "source": "client/out",
     "build": "npm run build --prefix client"
   },
-  "cache": {
-    "segments": [
-      {
-        "name": "ksp_context_cache"
-      }
+  "functions": {
+    "targets": [
+      "api_gateway",
+      "catalyst-zia-services",
+      "hotspot_alert_cron"
     ]
-  },
-  "security_rules": {
-    "file": "security_rules.json"
   }
 }

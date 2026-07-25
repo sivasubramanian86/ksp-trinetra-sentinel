@@ -1,0 +1,9 @@
+{
+  "name": "hotspot_alert_cron",
+  "version": "1.0.0",
+  "description": "Catalyst Cron function for automated crime hotspot alerting and server health monitoring",
+  "main": "index.js",
+  "dependencies": {
+    "zcatalyst-sdk-node": "latest"
+  }
+}

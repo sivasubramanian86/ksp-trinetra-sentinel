@@ -1,7 +1,8 @@
 # Zoho Catalyst Deployment Script (Windows PowerShell)
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "[+] Building and Deploying KSP Trinetra Sentinel to Catalyst Project ID: 45111000000013054" -ForegroundColor Cyan
+Write-Host "[+] Building and Deploying KSP Trinetra Sentinel to Catalyst (India DC: --dc in)" -ForegroundColor Cyan
+Write-Host "Project ID: 45111000000013054 (KSP-Trinetra-Sentinel)" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 # Step 1: Build Next.js static client export
@@ -21,9 +22,9 @@ if (Test-Path "client/out") {
     exit 1
 }
 
-# Step 3: Execute Catalyst Deploy
-Write-Host "[3/3] Deploying Web Client to Zoho Catalyst..." -ForegroundColor Yellow
-catalyst deploy --only client --project 45111000000013054
+# Step 3: Execute Catalyst Deploy to India DC (--dc in) for client AND functions
+Write-Host "[3/3] Deploying Web Client & Express Gateway Functions to Zoho Catalyst India Data Center (--dc in)..." -ForegroundColor Yellow
+catalyst deploy --dc in --project 45111000000013054
 
 Write-Host ""
-Write-Host "[OK] Production Deployment to Zoho Catalyst Complete!" -ForegroundColor Green
+Write-Host "[OK] Production Deployment to Zoho Catalyst India DC Complete!" -ForegroundColor Green

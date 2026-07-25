@@ -1,0 +1,9 @@
+[
+  {
+    "name": "api_gateway",
+    "type": "AdvancedIO",
+    "stack": "node18",
+    "main": "index.js",
+    "path": "functions/api_gateway"
+  }
+]

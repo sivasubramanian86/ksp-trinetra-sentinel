@@ -1,0 +1,2026 @@
+{
+  "cases": [
+    {
+      "CaseMasterID": 1,
+      "CrimeNo": "11047202600001",
+      "CaseNo": "202600001",
+      "CrimeRegisteredDate": "2026-05-03 18:11:22",
+      "PolicePersonID": 507,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 13.017476214550175,
+      "longitude": 77.57684648264606,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 2,
+      "CrimeNo": "11047202600002",
+      "CaseNo": "202600002",
+      "CrimeRegisteredDate": "2026-05-10 18:11:22",
+      "PolicePersonID": 501,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 12.94463345274915,
+      "longitude": 77.58863996351775,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 3,
+      "CrimeNo": "11046202600003",
+      "CaseNo": "202600003",
+      "CrimeRegisteredDate": "2026-05-03 18:11:22",
+      "PolicePersonID": 505,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.926139421453787,
+      "longitude": 77.63885653570132,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 4,
+      "CrimeNo": "11048202600004",
+      "CaseNo": "202600004",
+      "CrimeRegisteredDate": "2026-07-04 18:11:22",
+      "PolicePersonID": 507,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 13.01443000577588,
+      "longitude": 77.54653932365774,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 5,
+      "CrimeNo": "11046202600005",
+      "CaseNo": "202600005",
+      "CrimeRegisteredDate": "2026-06-21 18:11:22",
+      "PolicePersonID": 504,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.922402716701217,
+      "longitude": 77.5739003450916,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 6,
+      "CrimeNo": "11046202600006",
+      "CaseNo": "202600006",
+      "CrimeRegisteredDate": "2026-05-22 18:11:22",
+      "PolicePersonID": 505,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 13.01965857402927,
+      "longitude": 77.56639696166174,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 7,
+      "CrimeNo": "11046202600007",
+      "CaseNo": "202600007",
+      "CrimeRegisteredDate": "2026-07-04 18:11:22",
+      "PolicePersonID": 502,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 13.015817067781548,
+      "longitude": 77.61193327059324,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 8,
+      "CrimeNo": "11044202600008",
+      "CaseNo": "202600008",
+      "CrimeRegisteredDate": "2026-06-14 18:11:22",
+      "PolicePersonID": 510,
+      "PoliceStationID": 1044,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 13.00334305549212,
+      "longitude": 77.57033421176395,
+      "BriefFacts": "Incident reported at Indiranagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 9,
+      "CrimeNo": "11045202600009",
+      "CaseNo": "202600009",
+      "CrimeRegisteredDate": "2026-05-01 18:11:22",
+      "PolicePersonID": 501,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.973545464175965,
+      "longitude": 77.5961511448911,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 10,
+      "CrimeNo": "11045202600010",
+      "CaseNo": "202600010",
+      "CrimeRegisteredDate": "2026-05-29 18:11:22",
+      "PolicePersonID": 508,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 13.019155272033911,
+      "longitude": 77.62182529903178,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 11,
+      "CrimeNo": "11046202600011",
+      "CaseNo": "202600011",
+      "CrimeRegisteredDate": "2026-06-27 18:11:22",
+      "PolicePersonID": 504,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.973818315966595,
+      "longitude": 77.60655892040997,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 12,
+      "CrimeNo": "11045202600012",
+      "CaseNo": "202600012",
+      "CrimeRegisteredDate": "2026-06-30 18:11:22",
+      "PolicePersonID": 503,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 12.971870987502513,
+      "longitude": 77.54893173011952,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 13,
+      "CrimeNo": "11047202600013",
+      "CaseNo": "202600013",
+      "CrimeRegisteredDate": "2026-06-19 18:11:22",
+      "PolicePersonID": 503,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.986115702810851,
+      "longitude": 77.56243660106674,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 14,
+      "CrimeNo": "11048202600014",
+      "CaseNo": "202600014",
+      "CrimeRegisteredDate": "2026-06-10 18:11:22",
+      "PolicePersonID": 502,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.948665999492244,
+      "longitude": 77.59781026462872,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 15,
+      "CrimeNo": "11048202600015",
+      "CaseNo": "202600015",
+      "CrimeRegisteredDate": "2026-07-22 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.940749780598832,
+      "longitude": 77.60531043295256,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 16,
+      "CrimeNo": "11047202600016",
+      "CaseNo": "202600016",
+      "CrimeRegisteredDate": "2026-06-05 18:11:22",
+      "PolicePersonID": 507,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.936959008467543,
+      "longitude": 77.54522187633393,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 17,
+      "CrimeNo": "11047202600017",
+      "CaseNo": "202600017",
+      "CrimeRegisteredDate": "2026-06-20 18:11:22",
+      "PolicePersonID": 508,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 12.966707778887221,
+      "longitude": 77.58766764115583,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 18,
+      "CrimeNo": "11048202600018",
+      "CaseNo": "202600018",
+      "CrimeRegisteredDate": "2026-05-03 18:11:22",
+      "PolicePersonID": 503,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.969834041583873,
+      "longitude": 77.59308446558899,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 19,
+      "CrimeNo": "11048202600019",
+      "CaseNo": "202600019",
+      "CrimeRegisteredDate": "2026-05-20 18:11:22",
+      "PolicePersonID": 505,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 13.021004295451442,
+      "longitude": 77.57735657779627,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 20,
+      "CrimeNo": "11045202600020",
+      "CaseNo": "202600020",
+      "CrimeRegisteredDate": "2026-05-12 18:11:22",
+      "PolicePersonID": 501,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.949702798257192,
+      "longitude": 77.63300983483705,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 21,
+      "CrimeNo": "11048202600021",
+      "CaseNo": "202600021",
+      "CrimeRegisteredDate": "2026-07-18 18:11:22",
+      "PolicePersonID": 509,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.974017308189662,
+      "longitude": 77.56444709139352,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 22,
+      "CrimeNo": "11046202600022",
+      "CaseNo": "202600022",
+      "CrimeRegisteredDate": "2026-04-26 18:11:22",
+      "PolicePersonID": 509,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.983714791944314,
+      "longitude": 77.57667600531028,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 23,
+      "CrimeNo": "11046202600023",
+      "CaseNo": "202600023",
+      "CrimeRegisteredDate": "2026-05-07 18:11:22",
+      "PolicePersonID": 510,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.947274372101298,
+      "longitude": 77.59341903587563,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 24,
+      "CrimeNo": "11048202600024",
+      "CaseNo": "202600024",
+      "CrimeRegisteredDate": "2026-07-24 18:11:22",
+      "PolicePersonID": 502,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 12.948507575390531,
+      "longitude": 77.63325757255346,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 25,
+      "CrimeNo": "11048202600025",
+      "CaseNo": "202600025",
+      "CrimeRegisteredDate": "2026-05-22 18:11:22",
+      "PolicePersonID": 505,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.999961346614658,
+      "longitude": 77.62768946512016,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 26,
+      "CrimeNo": "11047202600026",
+      "CaseNo": "202600026",
+      "CrimeRegisteredDate": "2026-07-23 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.983739454613254,
+      "longitude": 77.57305449385498,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 27,
+      "CrimeNo": "11047202600027",
+      "CaseNo": "202600027",
+      "CrimeRegisteredDate": "2026-05-18 18:11:22",
+      "PolicePersonID": 502,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.963756477790591,
+      "longitude": 77.55525805686734,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 28,
+      "CrimeNo": "11048202600028",
+      "CaseNo": "202600028",
+      "CrimeRegisteredDate": "2026-06-22 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.953362730676629,
+      "longitude": 77.62322515891942,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 29,
+      "CrimeNo": "11048202600029",
+      "CaseNo": "202600029",
+      "CrimeRegisteredDate": "2026-06-13 18:11:22",
+      "PolicePersonID": 504,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.924966379483342,
+      "longitude": 77.60150894034177,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 30,
+      "CrimeNo": "11047202600030",
+      "CaseNo": "202600030",
+      "CrimeRegisteredDate": "2026-05-23 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.98626542305352,
+      "longitude": 77.59168241023384,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 31,
+      "CrimeNo": "11045202600031",
+      "CaseNo": "202600031",
+      "CrimeRegisteredDate": "2026-05-12 18:11:22",
+      "PolicePersonID": 509,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.960713868841012,
+      "longitude": 77.5877204820554,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 32,
+      "CrimeNo": "11048202600032",
+      "CaseNo": "202600032",
+      "CrimeRegisteredDate": "2026-05-03 18:11:22",
+      "PolicePersonID": 510,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 13.014240046913518,
+      "longitude": 77.59729841075378,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 33,
+      "CrimeNo": "11044202600033",
+      "CaseNo": "202600033",
+      "CrimeRegisteredDate": "2026-07-04 18:11:22",
+      "PolicePersonID": 502,
+      "PoliceStationID": 1044,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.937847254903568,
+      "longitude": 77.61832143727896,
+      "BriefFacts": "Incident reported at Indiranagar Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 34,
+      "CrimeNo": "11046202600034",
+      "CaseNo": "202600034",
+      "CrimeRegisteredDate": "2026-05-13 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 13.0023545693277,
+      "longitude": 77.63454480777341,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 35,
+      "CrimeNo": "11048202600035",
+      "CaseNo": "202600035",
+      "CrimeRegisteredDate": "2026-06-10 18:11:22",
+      "PolicePersonID": 508,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.964451328615272,
+      "longitude": 77.58585918764457,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 36,
+      "CrimeNo": "11045202600036",
+      "CaseNo": "202600036",
+      "CrimeRegisteredDate": "2026-06-03 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.943458718627243,
+      "longitude": 77.59161006112524,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 37,
+      "CrimeNo": "11044202600037",
+      "CaseNo": "202600037",
+      "CrimeRegisteredDate": "2026-07-18 18:11:22",
+      "PolicePersonID": 507,
+      "PoliceStationID": 1044,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.981222531768951,
+      "longitude": 77.62469015545236,
+      "BriefFacts": "Incident reported at Indiranagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 38,
+      "CrimeNo": "11047202600038",
+      "CaseNo": "202600038",
+      "CrimeRegisteredDate": "2026-05-24 18:11:22",
+      "PolicePersonID": 503,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.937154752211319,
+      "longitude": 77.61886459578504,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 39,
+      "CrimeNo": "11048202600039",
+      "CaseNo": "202600039",
+      "CrimeRegisteredDate": "2026-06-13 18:11:22",
+      "PolicePersonID": 501,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.985137647100006,
+      "longitude": 77.57784157632952,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 40,
+      "CrimeNo": "11045202600040",
+      "CaseNo": "202600040",
+      "CrimeRegisteredDate": "2026-06-20 18:11:22",
+      "PolicePersonID": 504,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.982622771972215,
+      "longitude": 77.6223435350944,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 41,
+      "CrimeNo": "11046202600041",
+      "CaseNo": "202600041",
+      "CrimeRegisteredDate": "2026-06-20 18:11:22",
+      "PolicePersonID": 503,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.967678102300608,
+      "longitude": 77.57689433799611,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 42,
+      "CrimeNo": "11044202600042",
+      "CaseNo": "202600042",
+      "CrimeRegisteredDate": "2026-06-09 18:11:22",
+      "PolicePersonID": 504,
+      "PoliceStationID": 1044,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 12.958261355918573,
+      "longitude": 77.59291944237432,
+      "BriefFacts": "Incident reported at Indiranagar Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 43,
+      "CrimeNo": "11044202600043",
+      "CaseNo": "202600043",
+      "CrimeRegisteredDate": "2026-04-29 18:11:22",
+      "PolicePersonID": 509,
+      "PoliceStationID": 1044,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.94622406518583,
+      "longitude": 77.59458805273105,
+      "BriefFacts": "Incident reported at Indiranagar Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 44,
+      "CrimeNo": "11048202600044",
+      "CaseNo": "202600044",
+      "CrimeRegisteredDate": "2026-06-17 18:11:22",
+      "PolicePersonID": 503,
+      "PoliceStationID": 1048,
+      "CrimeMajorHeadID": 2,
+      "CrimeMinorHeadID": 102,
+      "latitude": 13.017893497052917,
+      "longitude": 77.61562398047683,
+      "BriefFacts": "Incident reported at Whitefield Police Station. Offence under Two-Wheeler Theft. Investigation underway."
+    },
+    {
+      "CaseMasterID": 45,
+      "CrimeNo": "11047202600045",
+      "CaseNo": "202600045",
+      "CrimeRegisteredDate": "2026-05-16 18:11:22",
+      "PolicePersonID": 501,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 13.021184626558675,
+      "longitude": 77.55958661350385,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Stalking / Harassment. Investigation underway."
+    },
+    {
+      "CaseMasterID": 46,
+      "CrimeNo": "11046202600046",
+      "CaseNo": "202600046",
+      "CrimeRegisteredDate": "2026-06-24 18:11:22",
+      "PolicePersonID": 501,
+      "PoliceStationID": 1046,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.97997186971965,
+      "longitude": 77.58213699482762,
+      "BriefFacts": "Incident reported at Cubbon Park Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 47,
+      "CrimeNo": "11047202600047",
+      "CaseNo": "202600047",
+      "CrimeRegisteredDate": "2026-06-03 18:11:22",
+      "PolicePersonID": 507,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.970336239867017,
+      "longitude": 77.59228682138605,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 48,
+      "CrimeNo": "11047202600048",
+      "CaseNo": "202600048",
+      "CrimeRegisteredDate": "2026-07-01 18:11:22",
+      "PolicePersonID": 508,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 3,
+      "CrimeMinorHeadID": 103,
+      "latitude": 12.99940745663338,
+      "longitude": 77.60854705248724,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Financial Fraud. Investigation underway."
+    },
+    {
+      "CaseMasterID": 49,
+      "CrimeNo": "11045202600049",
+      "CaseNo": "202600049",
+      "CrimeRegisteredDate": "2026-07-21 18:11:22",
+      "PolicePersonID": 506,
+      "PoliceStationID": 1045,
+      "CrimeMajorHeadID": 1,
+      "CrimeMinorHeadID": 101,
+      "latitude": 13.005095112018589,
+      "longitude": 77.62849187298521,
+      "BriefFacts": "Incident reported at Koramangala Police Station. Offence under Robbery / Extortion. Investigation underway."
+    },
+    {
+      "CaseMasterID": 50,
+      "CrimeNo": "11047202600050",
+      "CaseNo": "202600050",
+      "CrimeRegisteredDate": "2026-06-29 18:11:22",
+      "PolicePersonID": 502,
+      "PoliceStationID": 1047,
+      "CrimeMajorHeadID": 4,
+      "CrimeMinorHeadID": 104,
+      "latitude": 12.999089846433407,
+      "longitude": 77.58659576692094,
+      "BriefFacts": "Incident reported at Jayanagar Police Station. Offence under Stalking / Harassment. Investigation underway."
+    }
+  ],
+  "complainants": [
+    {
+      "ComplainantID": 1,
+      "CaseMasterID": 1,
+      "ComplainantName": "Complainant_1",
+      "AgeYear": 34,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 2,
+      "CaseMasterID": 2,
+      "ComplainantName": "Complainant_2",
+      "AgeYear": 60,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 3,
+      "CaseMasterID": 3,
+      "ComplainantName": "Complainant_3",
+      "AgeYear": 42,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 4,
+      "CaseMasterID": 4,
+      "ComplainantName": "Complainant_4",
+      "AgeYear": 38,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 5,
+      "CaseMasterID": 5,
+      "ComplainantName": "Complainant_5",
+      "AgeYear": 53,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 6,
+      "CaseMasterID": 6,
+      "ComplainantName": "Complainant_6",
+      "AgeYear": 35,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 7,
+      "CaseMasterID": 7,
+      "ComplainantName": "Complainant_7",
+      "AgeYear": 36,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 8,
+      "CaseMasterID": 8,
+      "ComplainantName": "Complainant_8",
+      "AgeYear": 28,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 9,
+      "CaseMasterID": 9,
+      "ComplainantName": "Complainant_9",
+      "AgeYear": 26,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 10,
+      "CaseMasterID": 10,
+      "ComplainantName": "Complainant_10",
+      "AgeYear": 45,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 11,
+      "CaseMasterID": 11,
+      "ComplainantName": "Complainant_11",
+      "AgeYear": 27,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 12,
+      "CaseMasterID": 12,
+      "ComplainantName": "Complainant_12",
+      "AgeYear": 58,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 13,
+      "CaseMasterID": 13,
+      "ComplainantName": "Complainant_13",
+      "AgeYear": 40,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 14,
+      "CaseMasterID": 14,
+      "ComplainantName": "Complainant_14",
+      "AgeYear": 25,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 15,
+      "CaseMasterID": 15,
+      "ComplainantName": "Complainant_15",
+      "AgeYear": 49,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 16,
+      "CaseMasterID": 16,
+      "ComplainantName": "Complainant_16",
+      "AgeYear": 42,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 17,
+      "CaseMasterID": 17,
+      "ComplainantName": "Complainant_17",
+      "AgeYear": 24,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 18,
+      "CaseMasterID": 18,
+      "ComplainantName": "Complainant_18",
+      "AgeYear": 38,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 19,
+      "CaseMasterID": 19,
+      "ComplainantName": "Complainant_19",
+      "AgeYear": 28,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 20,
+      "CaseMasterID": 20,
+      "ComplainantName": "Complainant_20",
+      "AgeYear": 33,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 21,
+      "CaseMasterID": 21,
+      "ComplainantName": "Complainant_21",
+      "AgeYear": 54,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 22,
+      "CaseMasterID": 22,
+      "ComplainantName": "Complainant_22",
+      "AgeYear": 40,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 23,
+      "CaseMasterID": 23,
+      "ComplainantName": "Complainant_23",
+      "AgeYear": 49,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 24,
+      "CaseMasterID": 24,
+      "ComplainantName": "Complainant_24",
+      "AgeYear": 31,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 25,
+      "CaseMasterID": 25,
+      "ComplainantName": "Complainant_25",
+      "AgeYear": 41,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 26,
+      "CaseMasterID": 26,
+      "ComplainantName": "Complainant_26",
+      "AgeYear": 44,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 27,
+      "CaseMasterID": 27,
+      "ComplainantName": "Complainant_27",
+      "AgeYear": 36,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 28,
+      "CaseMasterID": 28,
+      "ComplainantName": "Complainant_28",
+      "AgeYear": 59,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 29,
+      "CaseMasterID": 29,
+      "ComplainantName": "Complainant_29",
+      "AgeYear": 34,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 30,
+      "CaseMasterID": 30,
+      "ComplainantName": "Complainant_30",
+      "AgeYear": 58,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 31,
+      "CaseMasterID": 31,
+      "ComplainantName": "Complainant_31",
+      "AgeYear": 26,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 32,
+      "CaseMasterID": 32,
+      "ComplainantName": "Complainant_32",
+      "AgeYear": 35,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 33,
+      "CaseMasterID": 33,
+      "ComplainantName": "Complainant_33",
+      "AgeYear": 24,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 34,
+      "CaseMasterID": 34,
+      "ComplainantName": "Complainant_34",
+      "AgeYear": 42,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 35,
+      "CaseMasterID": 35,
+      "ComplainantName": "Complainant_35",
+      "AgeYear": 57,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 36,
+      "CaseMasterID": 36,
+      "ComplainantName": "Complainant_36",
+      "AgeYear": 35,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 37,
+      "CaseMasterID": 37,
+      "ComplainantName": "Complainant_37",
+      "AgeYear": 55,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 38,
+      "CaseMasterID": 38,
+      "ComplainantName": "Complainant_38",
+      "AgeYear": 29,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 39,
+      "CaseMasterID": 39,
+      "ComplainantName": "Complainant_39",
+      "AgeYear": 29,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 40,
+      "CaseMasterID": 40,
+      "ComplainantName": "Complainant_40",
+      "AgeYear": 25,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 41,
+      "CaseMasterID": 41,
+      "ComplainantName": "Complainant_41",
+      "AgeYear": 38,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 42,
+      "CaseMasterID": 42,
+      "ComplainantName": "Complainant_42",
+      "AgeYear": 56,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 43,
+      "CaseMasterID": 43,
+      "ComplainantName": "Complainant_43",
+      "AgeYear": 47,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 44,
+      "CaseMasterID": 44,
+      "ComplainantName": "Complainant_44",
+      "AgeYear": 54,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 45,
+      "CaseMasterID": 45,
+      "ComplainantName": "Complainant_45",
+      "AgeYear": 29,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 46,
+      "CaseMasterID": 46,
+      "ComplainantName": "Complainant_46",
+      "AgeYear": 41,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 47,
+      "CaseMasterID": 47,
+      "ComplainantName": "Complainant_47",
+      "AgeYear": 30,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 48,
+      "CaseMasterID": 48,
+      "ComplainantName": "Complainant_48",
+      "AgeYear": 60,
+      "GenderID": 2
+    },
+    {
+      "ComplainantID": 49,
+      "CaseMasterID": 49,
+      "ComplainantName": "Complainant_49",
+      "AgeYear": 22,
+      "GenderID": 1
+    },
+    {
+      "ComplainantID": 50,
+      "CaseMasterID": 50,
+      "ComplainantName": "Complainant_50",
+      "AgeYear": 34,
+      "GenderID": 2
+    }
+  ],
+  "victims": [
+    {
+      "VictimMasterID": 1,
+      "CaseMasterID": 1,
+      "VictimName": "Victim_1",
+      "AgeYear": 51,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 2,
+      "CaseMasterID": 2,
+      "VictimName": "Victim_2",
+      "AgeYear": 23,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 3,
+      "CaseMasterID": 3,
+      "VictimName": "Victim_3",
+      "AgeYear": 41,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 4,
+      "CaseMasterID": 4,
+      "VictimName": "Victim_4",
+      "AgeYear": 46,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 5,
+      "CaseMasterID": 5,
+      "VictimName": "Victim_5",
+      "AgeYear": 42,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 6,
+      "CaseMasterID": 6,
+      "VictimName": "Victim_6",
+      "AgeYear": 36,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 7,
+      "CaseMasterID": 7,
+      "VictimName": "Victim_7",
+      "AgeYear": 25,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 8,
+      "CaseMasterID": 8,
+      "VictimName": "Victim_8",
+      "AgeYear": 51,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 9,
+      "CaseMasterID": 9,
+      "VictimName": "Victim_9",
+      "AgeYear": 63,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 10,
+      "CaseMasterID": 10,
+      "VictimName": "Victim_10",
+      "AgeYear": 23,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 11,
+      "CaseMasterID": 11,
+      "VictimName": "Victim_11",
+      "AgeYear": 25,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 12,
+      "CaseMasterID": 12,
+      "VictimName": "Victim_12",
+      "AgeYear": 52,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 13,
+      "CaseMasterID": 13,
+      "VictimName": "Victim_13",
+      "AgeYear": 60,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 14,
+      "CaseMasterID": 14,
+      "VictimName": "Victim_14",
+      "AgeYear": 33,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 15,
+      "CaseMasterID": 15,
+      "VictimName": "Victim_15",
+      "AgeYear": 60,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 16,
+      "CaseMasterID": 16,
+      "VictimName": "Victim_16",
+      "AgeYear": 43,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 17,
+      "CaseMasterID": 17,
+      "VictimName": "Victim_17",
+      "AgeYear": 24,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 18,
+      "CaseMasterID": 18,
+      "VictimName": "Victim_18",
+      "AgeYear": 57,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 19,
+      "CaseMasterID": 19,
+      "VictimName": "Victim_19",
+      "AgeYear": 36,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 20,
+      "CaseMasterID": 20,
+      "VictimName": "Victim_20",
+      "AgeYear": 44,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 21,
+      "CaseMasterID": 21,
+      "VictimName": "Victim_21",
+      "AgeYear": 20,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 22,
+      "CaseMasterID": 22,
+      "VictimName": "Victim_22",
+      "AgeYear": 46,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 23,
+      "CaseMasterID": 23,
+      "VictimName": "Victim_23",
+      "AgeYear": 60,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 24,
+      "CaseMasterID": 24,
+      "VictimName": "Victim_24",
+      "AgeYear": 24,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 25,
+      "CaseMasterID": 25,
+      "VictimName": "Victim_25",
+      "AgeYear": 48,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 26,
+      "CaseMasterID": 26,
+      "VictimName": "Victim_26",
+      "AgeYear": 51,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 27,
+      "CaseMasterID": 27,
+      "VictimName": "Victim_27",
+      "AgeYear": 45,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 28,
+      "CaseMasterID": 28,
+      "VictimName": "Victim_28",
+      "AgeYear": 27,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 29,
+      "CaseMasterID": 29,
+      "VictimName": "Victim_29",
+      "AgeYear": 48,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 30,
+      "CaseMasterID": 30,
+      "VictimName": "Victim_30",
+      "AgeYear": 36,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 31,
+      "CaseMasterID": 31,
+      "VictimName": "Victim_31",
+      "AgeYear": 42,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 32,
+      "CaseMasterID": 32,
+      "VictimName": "Victim_32",
+      "AgeYear": 46,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 33,
+      "CaseMasterID": 33,
+      "VictimName": "Victim_33",
+      "AgeYear": 44,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 34,
+      "CaseMasterID": 34,
+      "VictimName": "Victim_34",
+      "AgeYear": 31,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 35,
+      "CaseMasterID": 35,
+      "VictimName": "Victim_35",
+      "AgeYear": 32,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 36,
+      "CaseMasterID": 36,
+      "VictimName": "Victim_36",
+      "AgeYear": 55,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 37,
+      "CaseMasterID": 37,
+      "VictimName": "Victim_37",
+      "AgeYear": 42,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 38,
+      "CaseMasterID": 38,
+      "VictimName": "Victim_38",
+      "AgeYear": 47,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 39,
+      "CaseMasterID": 39,
+      "VictimName": "Victim_39",
+      "AgeYear": 45,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 40,
+      "CaseMasterID": 40,
+      "VictimName": "Victim_40",
+      "AgeYear": 30,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 41,
+      "CaseMasterID": 41,
+      "VictimName": "Victim_41",
+      "AgeYear": 54,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 42,
+      "CaseMasterID": 42,
+      "VictimName": "Victim_42",
+      "AgeYear": 36,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 43,
+      "CaseMasterID": 43,
+      "VictimName": "Victim_43",
+      "AgeYear": 33,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 44,
+      "CaseMasterID": 44,
+      "VictimName": "Victim_44",
+      "AgeYear": 59,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 45,
+      "CaseMasterID": 45,
+      "VictimName": "Victim_45",
+      "AgeYear": 49,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 46,
+      "CaseMasterID": 46,
+      "VictimName": "Victim_46",
+      "AgeYear": 54,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 47,
+      "CaseMasterID": 47,
+      "VictimName": "Victim_47",
+      "AgeYear": 47,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 48,
+      "CaseMasterID": 48,
+      "VictimName": "Victim_48",
+      "AgeYear": 64,
+      "GenderID": 1
+    },
+    {
+      "VictimMasterID": 49,
+      "CaseMasterID": 49,
+      "VictimName": "Victim_49",
+      "AgeYear": 64,
+      "GenderID": 2
+    },
+    {
+      "VictimMasterID": 50,
+      "CaseMasterID": 50,
+      "VictimName": "Victim_50",
+      "AgeYear": 62,
+      "GenderID": 1
+    }
+  ],
+  "accused": [
+    {
+      "AccusedMasterID": 1,
+      "CaseMasterID": 1,
+      "AccusedName": "Suspect_Alpha_1",
+      "AgeYear": 27,
+      "GenderID": 1,
+      "PersonID": "A1"
+    },
+    {
+      "AccusedMasterID": 2,
+      "CaseMasterID": 2,
+      "AccusedName": "Suspect_Alpha_2",
+      "AgeYear": 42,
+      "GenderID": 1,
+      "PersonID": "A2"
+    },
+    {
+      "AccusedMasterID": 3,
+      "CaseMasterID": 3,
+      "AccusedName": "Suspect_Alpha_3",
+      "AgeYear": 27,
+      "GenderID": 1,
+      "PersonID": "A3"
+    },
+    {
+      "AccusedMasterID": 4,
+      "CaseMasterID": 4,
+      "AccusedName": "Suspect_Alpha_4",
+      "AgeYear": 20,
+      "GenderID": 1,
+      "PersonID": "A4"
+    },
+    {
+      "AccusedMasterID": 5,
+      "CaseMasterID": 5,
+      "AccusedName": "Suspect_Alpha_5",
+      "AgeYear": 23,
+      "GenderID": 1,
+      "PersonID": "A5"
+    },
+    {
+      "AccusedMasterID": 6,
+      "CaseMasterID": 6,
+      "AccusedName": "Suspect_Alpha_6",
+      "AgeYear": 30,
+      "GenderID": 1,
+      "PersonID": "A6"
+    },
+    {
+      "AccusedMasterID": 7,
+      "CaseMasterID": 7,
+      "AccusedName": "Suspect_Alpha_7",
+      "AgeYear": 31,
+      "GenderID": 1,
+      "PersonID": "A7"
+    },
+    {
+      "AccusedMasterID": 8,
+      "CaseMasterID": 8,
+      "AccusedName": "Suspect_Alpha_8",
+      "AgeYear": 28,
+      "GenderID": 1,
+      "PersonID": "A8"
+    },
+    {
+      "AccusedMasterID": 9,
+      "CaseMasterID": 9,
+      "AccusedName": "Suspect_Alpha_9",
+      "AgeYear": 33,
+      "GenderID": 1,
+      "PersonID": "A9"
+    },
+    {
+      "AccusedMasterID": 10,
+      "CaseMasterID": 10,
+      "AccusedName": "Suspect_Alpha_10",
+      "AgeYear": 27,
+      "GenderID": 1,
+      "PersonID": "A10"
+    },
+    {
+      "AccusedMasterID": 11,
+      "CaseMasterID": 11,
+      "AccusedName": "Suspect_Alpha_11",
+      "AgeYear": 21,
+      "GenderID": 1,
+      "PersonID": "A11"
+    },
+    {
+      "AccusedMasterID": 12,
+      "CaseMasterID": 12,
+      "AccusedName": "Suspect_Alpha_12",
+      "AgeYear": 27,
+      "GenderID": 1,
+      "PersonID": "A12"
+    },
+    {
+      "AccusedMasterID": 13,
+      "CaseMasterID": 13,
+      "AccusedName": "Suspect_Alpha_13",
+      "AgeYear": 31,
+      "GenderID": 1,
+      "PersonID": "A13"
+    },
+    {
+      "AccusedMasterID": 14,
+      "CaseMasterID": 14,
+      "AccusedName": "Suspect_Alpha_14",
+      "AgeYear": 39,
+      "GenderID": 1,
+      "PersonID": "A14"
+    },
+    {
+      "AccusedMasterID": 15,
+      "CaseMasterID": 15,
+      "AccusedName": "Suspect_Alpha_15",
+      "AgeYear": 43,
+      "GenderID": 1,
+      "PersonID": "A15"
+    },
+    {
+      "AccusedMasterID": 16,
+      "CaseMasterID": 16,
+      "AccusedName": "Suspect_Alpha_16",
+      "AgeYear": 39,
+      "GenderID": 1,
+      "PersonID": "A16"
+    },
+    {
+      "AccusedMasterID": 17,
+      "CaseMasterID": 17,
+      "AccusedName": "Suspect_Alpha_17",
+      "AgeYear": 24,
+      "GenderID": 1,
+      "PersonID": "A17"
+    },
+    {
+      "AccusedMasterID": 18,
+      "CaseMasterID": 18,
+      "AccusedName": "Suspect_Alpha_18",
+      "AgeYear": 22,
+      "GenderID": 1,
+      "PersonID": "A18"
+    },
+    {
+      "AccusedMasterID": 19,
+      "CaseMasterID": 19,
+      "AccusedName": "Suspect_Alpha_19",
+      "AgeYear": 31,
+      "GenderID": 1,
+      "PersonID": "A19"
+    },
+    {
+      "AccusedMasterID": 20,
+      "CaseMasterID": 20,
+      "AccusedName": "Suspect_Alpha_20",
+      "AgeYear": 27,
+      "GenderID": 1,
+      "PersonID": "A20"
+    },
+    {
+      "AccusedMasterID": 21,
+      "CaseMasterID": 21,
+      "AccusedName": "Suspect_Alpha_21",
+      "AgeYear": 39,
+      "GenderID": 1,
+      "PersonID": "A21"
+    },
+    {
+      "AccusedMasterID": 22,
+      "CaseMasterID": 22,
+      "AccusedName": "Suspect_Alpha_22",
+      "AgeYear": 39,
+      "GenderID": 1,
+      "PersonID": "A22"
+    },
+    {
+      "AccusedMasterID": 23,
+      "CaseMasterID": 23,
+      "AccusedName": "Suspect_Alpha_23",
+      "AgeYear": 36,
+      "GenderID": 1,
+      "PersonID": "A23"
+    },
+    {
+      "AccusedMasterID": 24,
+      "CaseMasterID": 24,
+      "AccusedName": "Suspect_Alpha_24",
+      "AgeYear": 23,
+      "GenderID": 1,
+      "PersonID": "A24"
+    },
+    {
+      "AccusedMasterID": 25,
+      "CaseMasterID": 25,
+      "AccusedName": "Suspect_Alpha_25",
+      "AgeYear": 30,
+      "GenderID": 1,
+      "PersonID": "A25"
+    },
+    {
+      "AccusedMasterID": 26,
+      "CaseMasterID": 26,
+      "AccusedName": "Suspect_Alpha_26",
+      "AgeYear": 41,
+      "GenderID": 1,
+      "PersonID": "A26"
+    },
+    {
+      "AccusedMasterID": 27,
+      "CaseMasterID": 27,
+      "AccusedName": "Suspect_Alpha_27",
+      "AgeYear": 43,
+      "GenderID": 1,
+      "PersonID": "A27"
+    },
+    {
+      "AccusedMasterID": 28,
+      "CaseMasterID": 28,
+      "AccusedName": "Suspect_Alpha_28",
+      "AgeYear": 44,
+      "GenderID": 1,
+      "PersonID": "A28"
+    },
+    {
+      "AccusedMasterID": 29,
+      "CaseMasterID": 29,
+      "AccusedName": "Suspect_Alpha_29",
+      "AgeYear": 20,
+      "GenderID": 1,
+      "PersonID": "A29"
+    },
+    {
+      "AccusedMasterID": 30,
+      "CaseMasterID": 30,
+      "AccusedName": "Suspect_Alpha_30",
+      "AgeYear": 39,
+      "GenderID": 1,
+      "PersonID": "A30"
+    },
+    {
+      "AccusedMasterID": 31,
+      "CaseMasterID": 31,
+      "AccusedName": "Suspect_Alpha_31",
+      "AgeYear": 32,
+      "GenderID": 1,
+      "PersonID": "A31"
+    },
+    {
+      "AccusedMasterID": 32,
+      "CaseMasterID": 32,
+      "AccusedName": "Suspect_Alpha_32",
+      "AgeYear": 41,
+      "GenderID": 1,
+      "PersonID": "A32"
+    },
+    {
+      "AccusedMasterID": 33,
+      "CaseMasterID": 33,
+      "AccusedName": "Suspect_Alpha_33",
+      "AgeYear": 43,
+      "GenderID": 1,
+      "PersonID": "A33"
+    },
+    {
+      "AccusedMasterID": 34,
+      "CaseMasterID": 34,
+      "AccusedName": "Suspect_Alpha_34",
+      "AgeYear": 28,
+      "GenderID": 1,
+      "PersonID": "A34"
+    },
+    {
+      "AccusedMasterID": 35,
+      "CaseMasterID": 35,
+      "AccusedName": "Suspect_Alpha_35",
+      "AgeYear": 23,
+      "GenderID": 1,
+      "PersonID": "A35"
+    },
+    {
+      "AccusedMasterID": 36,
+      "CaseMasterID": 36,
+      "AccusedName": "Suspect_Alpha_36",
+      "AgeYear": 26,
+      "GenderID": 1,
+      "PersonID": "A36"
+    },
+    {
+      "AccusedMasterID": 37,
+      "CaseMasterID": 37,
+      "AccusedName": "Suspect_Alpha_37",
+      "AgeYear": 38,
+      "GenderID": 1,
+      "PersonID": "A37"
+    },
+    {
+      "AccusedMasterID": 38,
+      "CaseMasterID": 38,
+      "AccusedName": "Suspect_Alpha_38",
+      "AgeYear": 25,
+      "GenderID": 1,
+      "PersonID": "A38"
+    },
+    {
+      "AccusedMasterID": 39,
+      "CaseMasterID": 39,
+      "AccusedName": "Suspect_Alpha_39",
+      "AgeYear": 27,
+      "GenderID": 1,
+      "PersonID": "A39"
+    },
+    {
+      "AccusedMasterID": 40,
+      "CaseMasterID": 40,
+      "AccusedName": "Suspect_Alpha_40",
+      "AgeYear": 35,
+      "GenderID": 1,
+      "PersonID": "A40"
+    },
+    {
+      "AccusedMasterID": 41,
+      "CaseMasterID": 41,
+      "AccusedName": "Suspect_Alpha_41",
+      "AgeYear": 29,
+      "GenderID": 1,
+      "PersonID": "A41"
+    },
+    {
+      "AccusedMasterID": 42,
+      "CaseMasterID": 42,
+      "AccusedName": "Suspect_Alpha_42",
+      "AgeYear": 29,
+      "GenderID": 1,
+      "PersonID": "A42"
+    },
+    {
+      "AccusedMasterID": 43,
+      "CaseMasterID": 43,
+      "AccusedName": "Suspect_Alpha_43",
+      "AgeYear": 41,
+      "GenderID": 1,
+      "PersonID": "A43"
+    },
+    {
+      "AccusedMasterID": 44,
+      "CaseMasterID": 44,
+      "AccusedName": "Suspect_Alpha_44",
+      "AgeYear": 20,
+      "GenderID": 1,
+      "PersonID": "A44"
+    },
+    {
+      "AccusedMasterID": 45,
+      "CaseMasterID": 45,
+      "AccusedName": "Suspect_Alpha_45",
+      "AgeYear": 25,
+      "GenderID": 1,
+      "PersonID": "A45"
+    },
+    {
+      "AccusedMasterID": 46,
+      "CaseMasterID": 46,
+      "AccusedName": "Suspect_Alpha_46",
+      "AgeYear": 20,
+      "GenderID": 1,
+      "PersonID": "A46"
+    },
+    {
+      "AccusedMasterID": 47,
+      "CaseMasterID": 47,
+      "AccusedName": "Suspect_Alpha_47",
+      "AgeYear": 39,
+      "GenderID": 1,
+      "PersonID": "A47"
+    },
+    {
+      "AccusedMasterID": 48,
+      "CaseMasterID": 48,
+      "AccusedName": "Suspect_Alpha_48",
+      "AgeYear": 35,
+      "GenderID": 1,
+      "PersonID": "A48"
+    },
+    {
+      "AccusedMasterID": 49,
+      "CaseMasterID": 49,
+      "AccusedName": "Suspect_Alpha_49",
+      "AgeYear": 32,
+      "GenderID": 1,
+      "PersonID": "A49"
+    },
+    {
+      "AccusedMasterID": 50,
+      "CaseMasterID": 50,
+      "AccusedName": "Suspect_Alpha_50",
+      "AgeYear": 43,
+      "GenderID": 1,
+      "PersonID": "A50"
+    }
+  ],
+  "arrests": [
+    {
+      "ArrestSurrenderID": 2,
+      "CaseMasterID": 2,
+      "ArrestSurrenderDate": "2026-05-10",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 2
+    },
+    {
+      "ArrestSurrenderID": 7,
+      "CaseMasterID": 7,
+      "ArrestSurrenderDate": "2026-07-04",
+      "DistrictID": 30,
+      "PoliceStationID": 1046,
+      "AccusedMasterID": 7
+    },
+    {
+      "ArrestSurrenderID": 8,
+      "CaseMasterID": 8,
+      "ArrestSurrenderDate": "2026-06-14",
+      "DistrictID": 30,
+      "PoliceStationID": 1044,
+      "AccusedMasterID": 8
+    },
+    {
+      "ArrestSurrenderID": 9,
+      "CaseMasterID": 9,
+      "ArrestSurrenderDate": "2026-05-01",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 9
+    },
+    {
+      "ArrestSurrenderID": 10,
+      "CaseMasterID": 10,
+      "ArrestSurrenderDate": "2026-05-29",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 10
+    },
+    {
+      "ArrestSurrenderID": 12,
+      "CaseMasterID": 12,
+      "ArrestSurrenderDate": "2026-06-30",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 12
+    },
+    {
+      "ArrestSurrenderID": 13,
+      "CaseMasterID": 13,
+      "ArrestSurrenderDate": "2026-06-19",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 13
+    },
+    {
+      "ArrestSurrenderID": 15,
+      "CaseMasterID": 15,
+      "ArrestSurrenderDate": "2026-07-22",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 15
+    },
+    {
+      "ArrestSurrenderID": 16,
+      "CaseMasterID": 16,
+      "ArrestSurrenderDate": "2026-06-05",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 16
+    },
+    {
+      "ArrestSurrenderID": 17,
+      "CaseMasterID": 17,
+      "ArrestSurrenderDate": "2026-06-20",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 17
+    },
+    {
+      "ArrestSurrenderID": 19,
+      "CaseMasterID": 19,
+      "ArrestSurrenderDate": "2026-05-20",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 19
+    },
+    {
+      "ArrestSurrenderID": 20,
+      "CaseMasterID": 20,
+      "ArrestSurrenderDate": "2026-05-12",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 20
+    },
+    {
+      "ArrestSurrenderID": 21,
+      "CaseMasterID": 21,
+      "ArrestSurrenderDate": "2026-07-18",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 21
+    },
+    {
+      "ArrestSurrenderID": 22,
+      "CaseMasterID": 22,
+      "ArrestSurrenderDate": "2026-04-26",
+      "DistrictID": 30,
+      "PoliceStationID": 1046,
+      "AccusedMasterID": 22
+    },
+    {
+      "ArrestSurrenderID": 24,
+      "CaseMasterID": 24,
+      "ArrestSurrenderDate": "2026-07-24",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 24
+    },
+    {
+      "ArrestSurrenderID": 25,
+      "CaseMasterID": 25,
+      "ArrestSurrenderDate": "2026-05-22",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 25
+    },
+    {
+      "ArrestSurrenderID": 26,
+      "CaseMasterID": 26,
+      "ArrestSurrenderDate": "2026-07-23",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 26
+    },
+    {
+      "ArrestSurrenderID": 28,
+      "CaseMasterID": 28,
+      "ArrestSurrenderDate": "2026-06-22",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 28
+    },
+    {
+      "ArrestSurrenderID": 29,
+      "CaseMasterID": 29,
+      "ArrestSurrenderDate": "2026-06-13",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 29
+    },
+    {
+      "ArrestSurrenderID": 31,
+      "CaseMasterID": 31,
+      "ArrestSurrenderDate": "2026-05-12",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 31
+    },
+    {
+      "ArrestSurrenderID": 33,
+      "CaseMasterID": 33,
+      "ArrestSurrenderDate": "2026-07-04",
+      "DistrictID": 30,
+      "PoliceStationID": 1044,
+      "AccusedMasterID": 33
+    },
+    {
+      "ArrestSurrenderID": 34,
+      "CaseMasterID": 34,
+      "ArrestSurrenderDate": "2026-05-13",
+      "DistrictID": 30,
+      "PoliceStationID": 1046,
+      "AccusedMasterID": 34
+    },
+    {
+      "ArrestSurrenderID": 35,
+      "CaseMasterID": 35,
+      "ArrestSurrenderDate": "2026-06-10",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 35
+    },
+    {
+      "ArrestSurrenderID": 37,
+      "CaseMasterID": 37,
+      "ArrestSurrenderDate": "2026-07-18",
+      "DistrictID": 30,
+      "PoliceStationID": 1044,
+      "AccusedMasterID": 37
+    },
+    {
+      "ArrestSurrenderID": 38,
+      "CaseMasterID": 38,
+      "ArrestSurrenderDate": "2026-05-24",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 38
+    },
+    {
+      "ArrestSurrenderID": 39,
+      "CaseMasterID": 39,
+      "ArrestSurrenderDate": "2026-06-13",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 39
+    },
+    {
+      "ArrestSurrenderID": 40,
+      "CaseMasterID": 40,
+      "ArrestSurrenderDate": "2026-06-20",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 40
+    },
+    {
+      "ArrestSurrenderID": 41,
+      "CaseMasterID": 41,
+      "ArrestSurrenderDate": "2026-06-20",
+      "DistrictID": 30,
+      "PoliceStationID": 1046,
+      "AccusedMasterID": 41
+    },
+    {
+      "ArrestSurrenderID": 43,
+      "CaseMasterID": 43,
+      "ArrestSurrenderDate": "2026-04-29",
+      "DistrictID": 30,
+      "PoliceStationID": 1044,
+      "AccusedMasterID": 43
+    },
+    {
+      "ArrestSurrenderID": 44,
+      "CaseMasterID": 44,
+      "ArrestSurrenderDate": "2026-06-17",
+      "DistrictID": 30,
+      "PoliceStationID": 1048,
+      "AccusedMasterID": 44
+    },
+    {
+      "ArrestSurrenderID": 47,
+      "CaseMasterID": 47,
+      "ArrestSurrenderDate": "2026-06-03",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 47
+    },
+    {
+      "ArrestSurrenderID": 48,
+      "CaseMasterID": 48,
+      "ArrestSurrenderDate": "2026-07-01",
+      "DistrictID": 30,
+      "PoliceStationID": 1047,
+      "AccusedMasterID": 48
+    },
+    {
+      "ArrestSurrenderID": 49,
+      "CaseMasterID": 49,
+      "ArrestSurrenderDate": "2026-07-21",
+      "DistrictID": 30,
+      "PoliceStationID": 1045,
+      "AccusedMasterID": 49
+    }
+  ]
+}
