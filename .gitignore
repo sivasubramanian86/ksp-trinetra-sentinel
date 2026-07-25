@@ -41,3 +41,11 @@ walkthrough.md
 Thumbs.db
 .vscode/
 .idea/
+
+# Presentation Decks & Submissions
+*.pptx
+*.docx
+*.pdf
+docs/KSP_DATATHON_2026_PRESENTATION_DECK.md
+scripts/reference_deck_summary.txt
+
