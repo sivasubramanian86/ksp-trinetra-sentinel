@@ -1,0 +1,15 @@
+title = "Gitleaks Configuration for KSP Trinetra Sentinel"
+
+[allowlist]
+description = "Global allowlist for synthetic test seeds and mock tokens"
+paths = [
+  '''db/seeds/seed_data.py''',
+  '''functions/api_gateway/tests/test_mcp_tools.js''',
+  '''scripts/test_zia_agents.py''',
+  '''docs/.*'''
+]
+regexes = [
+  '''USR-SYNTHETIC-99''',
+  '''KSP-SENTINEL-DPDP-SALT-2026''',
+  '''HASH-[a-f0-9]{12}'''
+]
