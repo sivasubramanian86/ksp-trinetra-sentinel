@@ -60,6 +60,46 @@
         "columns": [
           { "name": "VictimName", "type": "var_char", "max_length": 150 }
         ]
+      },
+      {
+        "name": "AuditLog",
+        "columns": [
+          { "name": "EmployeeID", "type": "number" },
+          { "name": "UnitID", "type": "number" },
+          { "name": "ActionType", "type": "var_char", "max_length": 50 },
+          { "name": "ResourceType", "type": "var_char", "max_length": 50 },
+          { "name": "ResourceID", "type": "var_char", "max_length": 100 },
+          { "name": "QueryText", "type": "large_text" },
+          { "name": "IPAddress", "type": "var_char", "max_length": 45 },
+          { "name": "ResponseStatus", "type": "number" },
+          { "name": "PIIMasked", "type": "boolean" },
+          { "name": "AssistiveOnly", "type": "boolean" },
+          { "name": "CreatedAt", "type": "date_time" }
+        ]
+      },
+      {
+        "name": "OperationPlan",
+        "columns": [
+          { "name": "PlanName", "type": "var_char", "max_length": 200 },
+          { "name": "PlanType", "type": "var_char", "max_length": 50 },
+          { "name": "Status", "type": "var_char", "max_length": 30 },
+          { "name": "ResponsibleUnitID", "type": "number" },
+          { "name": "CreatedByID", "type": "number" },
+          { "name": "OperationDate", "type": "date_time" },
+          { "name": "PatrolRoutes", "type": "large_text" },
+          { "name": "ResourceAllocation", "type": "large_text" },
+          { "name": "BriefingNotes", "type": "large_text" }
+        ]
+      },
+      {
+        "name": "DashboardPreset",
+        "columns": [
+          { "name": "EmployeeID", "type": "number" },
+          { "name": "PresetName", "type": "var_char", "max_length": 100 },
+          { "name": "Module", "type": "var_char", "max_length": 50 },
+          { "name": "Filters", "type": "large_text" },
+          { "name": "IsDefault", "type": "boolean" }
+        ]
       }
     ]
   },

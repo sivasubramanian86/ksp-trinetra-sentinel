@@ -1,0 +1,1140 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "KSP Trinetra Sentinel — IPC to BNS 2023 Legal Knowledge Base Seed Corpus",
+    "assistive_note": "All entries are ASSISTIVE ONLY. Officers must independently verify all elements before applying any section.",
+    "source": "Bharatiya Nyaya Sanhita 2023, Indian Penal Code 1860, NDPS Act 1985, POCSO Act 2012",
+    "total_entries": 65
+  },
+  "mappings": [
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "302",
+      "bns_act_code": "BNS",
+      "bns_section": "101",
+      "offence_title": "Punishment for Murder",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Death or Imprisonment for Life + Fine",
+      "elements": ["Unlawful killing of a human being", "Intention to cause death", "OR intention to cause bodily injury sufficient to cause death in ordinary nature"],
+      "ingredient_checklist": [
+        {"item": "Victim is a human being", "required": true},
+        {"item": "Death of victim established (medical / forensic)", "required": true},
+        {"item": "Accused caused the act leading to death", "required": true},
+        {"item": "Mens rea: intent to kill or cause grievous injury", "required": true},
+        {"item": "No exception applies (grave provocation, right of private defence, etc.)", "required": true}
+      ],
+      "key_case_law": "State of UP v. Sri Krishna (1976) — distinction between murder and culpable homicide not amounting to murder"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "304",
+      "bns_act_code": "BNS",
+      "bns_section": "105",
+      "offence_title": "Culpable Homicide Not Amounting to Murder",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "10 years imprisonment + Fine (Part I) / 7 years (Part II)",
+      "elements": ["Causing death of a person", "Without intent to cause death (distinguished from murder)", "Knowledge that act is likely to cause death"],
+      "ingredient_checklist": [
+        {"item": "Death of victim established", "required": true},
+        {"item": "Act of accused caused death", "required": true},
+        {"item": "No premeditated intention to kill (distinguishes from BNS 101)", "required": true},
+        {"item": "Knowledge of likelihood of death", "required": true}
+      ],
+      "key_case_law": "Jagrup Singh v. State of Haryana (1981)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "307",
+      "bns_act_code": "BNS",
+      "bns_section": "109",
+      "offence_title": "Attempt to Murder",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "10 years imprisonment + Fine; Life if victim grievously hurt",
+      "elements": ["Act done with intention to commit murder", "Act capable of causing death if not prevented", "Victim need not die"],
+      "ingredient_checklist": [
+        {"item": "Clear intention to kill established", "required": true},
+        {"item": "Overt act committed toward killing", "required": true},
+        {"item": "Act goes beyond mere preparation", "required": true}
+      ],
+      "key_case_law": "Om Prakash v. State of Punjab (1961)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "376",
+      "bns_act_code": "BNS",
+      "bns_section": "63",
+      "offence_title": "Rape / Sexual Assault",
+      "offence_category": "Sexual Offences",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Minimum 10 years to Life + Fine (Rigorous Imprisonment)",
+      "elements": ["Sexual penetration without consent", "OR with consent obtained through coercion, fraud, or impersonation", "Includes digital penetration and use of objects"],
+      "ingredient_checklist": [
+        {"item": "Medical examination report obtained", "required": true},
+        {"item": "Survivor statement recorded (Section 164 CrPC/BNSS)", "required": true},
+        {"item": "Absence of consent established", "required": true},
+        {"item": "POCSO sections added if survivor is a minor", "required": false},
+        {"item": "DNA/forensic evidence collected within 72 hours", "required": true}
+      ],
+      "key_case_law": "Tukaram v. State of Maharashtra (1979); Lillu @ Rajesh v. State of Haryana (2013)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "354",
+      "bns_act_code": "BNS",
+      "bns_section": "74",
+      "offence_title": "Assault or Criminal Force Against Woman with Intent to Outrage Modesty",
+      "offence_category": "Sexual Offences",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "1 to 5 years imprisonment + Fine",
+      "elements": ["Use of assault or criminal force", "Against a woman", "With intent to outrage her modesty"],
+      "ingredient_checklist": [
+        {"item": "Complainant is a woman", "required": true},
+        {"item": "Act involved physical contact or threatening gesture", "required": true},
+        {"item": "Intent to outrage modesty demonstrable", "required": true}
+      ],
+      "key_case_law": "Ramkripal v. State of MP (2007)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "379",
+      "bns_act_code": "BNS",
+      "bns_section": "303",
+      "offence_title": "Theft",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine",
+      "elements": ["Dishonest intention to take moveable property", "Property taken out of possession of another without consent"],
+      "ingredient_checklist": [
+        {"item": "Property is moveable", "required": true},
+        {"item": "Property was in possession of another person", "required": true},
+        {"item": "Taken without consent of possessor", "required": true},
+        {"item": "Dishonest intent at time of taking", "required": true}
+      ],
+      "key_case_law": "Pyarelal Bhargava v. State of Rajasthan (1963)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "380",
+      "bns_act_code": "BNS",
+      "bns_section": "305",
+      "offence_title": "Theft in Dwelling House",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "7 years imprisonment + Fine",
+      "elements": ["Theft committed in a dwelling house, tent, or vessel", "Used as a human dwelling or custody of property"],
+      "ingredient_checklist": [
+        {"item": "All elements of BNS 303 (Theft) established", "required": true},
+        {"item": "Location is a dwelling house or equivalent", "required": true},
+        {"item": "Entry into premises established", "required": true}
+      ],
+      "key_case_law": "Madhu v. State of Kerala (2012)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "392",
+      "bns_act_code": "BNS",
+      "bns_section": "309",
+      "offence_title": "Robbery",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "10 years imprisonment + Fine; 14 years if highway robbery",
+      "elements": ["Theft or extortion accompanied by use of force / threat of force", "Violence or threat at time of commission or for carrying away property"],
+      "ingredient_checklist": [
+        {"item": "Theft elements established (BNS 303)", "required": true},
+        {"item": "Force/threat used voluntarily before or during the theft", "required": true},
+        {"item": "Victim put in fear of instant death, hurt, or wrongful restraint", "required": true}
+      ],
+      "key_case_law": "Om Prakash v. State of Rajasthan (1997)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "395",
+      "bns_act_code": "BNS",
+      "bns_section": "310",
+      "offence_title": "Dacoity",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Life Imprisonment + Fine",
+      "elements": ["Robbery committed by 5 or more persons", "All persons present (even those not directly committing robbery are liable)"],
+      "ingredient_checklist": [
+        {"item": "Robbery elements established (BNS 309)", "required": true},
+        {"item": "5 or more persons involved and present", "required": true},
+        {"item": "Common intention to commit robbery", "required": true}
+      ],
+      "key_case_law": "Bhagwan Singh v. State of MP (2002)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "397",
+      "bns_act_code": "BNS",
+      "bns_section": "311",
+      "offence_title": "Robbery or Dacoity with Attempt to Cause Death or Grievous Hurt",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Minimum 7 years Rigorous Imprisonment (no reduction)",
+      "elements": ["Robbery or Dacoity committed", "Deadly weapon used OR grievous hurt caused OR attempt to cause death"],
+      "ingredient_checklist": [
+        {"item": "Robbery or Dacoity elements established", "required": true},
+        {"item": "Deadly weapon (knife, firearm, etc.) used or carried", "required": true},
+        {"item": "Victim suffered grievous hurt OR death was attempted", "required": false}
+      ],
+      "key_case_law": "Shambhu Nath Singh v. State of Bihar (1960)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "406",
+      "bns_act_code": "BNS",
+      "bns_section": "316",
+      "offence_title": "Criminal Breach of Trust",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine, or both",
+      "elements": ["Entrustment of property", "Dishonest misappropriation or conversion to own use", "OR dishonest disposal/use in violation of trust"],
+      "ingredient_checklist": [
+        {"item": "Property was entrusted to accused", "required": true},
+        {"item": "Entrustment documented (receipt, contract, ledger)", "required": false},
+        {"item": "Misappropriation or breach established", "required": true},
+        {"item": "Dishonest intent proven", "required": true}
+      ],
+      "key_case_law": "Velji Raghavji Patel v. State of Maharashtra (1965)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "420",
+      "bns_act_code": "BNS",
+      "bns_section": "318",
+      "offence_title": "Cheating and Dishonestly Inducing Delivery of Property",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "7 years imprisonment + Fine",
+      "elements": ["Deception of a person", "Fraudulently or dishonestly inducing the deceived person to deliver property", "OR to consent to retention of property by any person", "OR to alter or destroy signed/valuable security"],
+      "ingredient_checklist": [
+        {"item": "Deception / fraudulent misrepresentation established", "required": true},
+        {"item": "Victim induced to deliver property or sign document", "required": true},
+        {"item": "Accused received property or benefit", "required": true},
+        {"item": "Dishonest intent at time of deception", "required": true},
+        {"item": "Cyber Cell freeze requested if UPI/bank transactions involved", "required": false}
+      ],
+      "key_case_law": "Hridaya Ranjan Prasad Verma v. State of Bihar (2000); Vesa Holdings v. State of Kerala (2015)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "447",
+      "bns_act_code": "BNS",
+      "bns_section": "329",
+      "offence_title": "Criminal Trespass",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "3 months imprisonment + Fine of Rs 500",
+      "elements": ["Entry into property in possession of another", "With intent to commit offence, intimidate, insult, or annoy"],
+      "ingredient_checklist": [
+        {"item": "Property is in possession of complainant", "required": true},
+        {"item": "Entry by accused established", "required": true},
+        {"item": "Intent to commit offence or annoy established", "required": true}
+      ],
+      "key_case_law": "Mathai v. State of Kerala (2005)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "448",
+      "bns_act_code": "BNS",
+      "bns_section": "330",
+      "offence_title": "House Trespass",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "1 year imprisonment + Fine of Rs 1000",
+      "elements": ["Criminal trespass committed in a building / dwelling house / vessel"],
+      "ingredient_checklist": [
+        {"item": "All elements of BNS 329 (Criminal Trespass) established", "required": true},
+        {"item": "Location is a building, tent, or vessel used as dwelling or property custody", "required": true}
+      ],
+      "key_case_law": "Biswabhusan Naik v. State of Orissa (1954)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "454",
+      "bns_act_code": "BNS",
+      "bns_section": "333",
+      "offence_title": "House Trespass for Committing Offence Punishable with Imprisonment",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine",
+      "elements": ["House Trespass", "With intent to commit any offence punishable with imprisonment"],
+      "ingredient_checklist": [
+        {"item": "House trespass elements established (BNS 330)", "required": true},
+        {"item": "Intent to commit imprisonable offence inside", "required": true}
+      ],
+      "key_case_law": "Kishori Lal v. State of UP (1981)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "457",
+      "bns_act_code": "BNS",
+      "bns_section": "336",
+      "offence_title": "Lurking House Trespass or House Breaking by Night",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "5 years imprisonment + Fine",
+      "elements": ["House trespass", "Committed after sunset and before sunrise (nighttime)", "OR by lurking (concealing presence)"],
+      "ingredient_checklist": [
+        {"item": "House trespass elements established", "required": true},
+        {"item": "Time of trespass was after sunset / before sunrise", "required": true},
+        {"item": "Method of entry involved breaking or concealment", "required": false}
+      ],
+      "key_case_law": "State of Rajasthan v. Mohan Lal (1979)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "323",
+      "bns_act_code": "BNS",
+      "bns_section": "115",
+      "offence_title": "Voluntarily Causing Hurt",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "1 year imprisonment + Fine of Rs 1000, or both",
+      "elements": ["Voluntarily causing hurt to another person", "Without lawful excuse"],
+      "ingredient_checklist": [
+        {"item": "Physical injury, pain, disease, or infirmity caused", "required": true},
+        {"item": "Act was voluntary (not accidental)", "required": true},
+        {"item": "Medical certificate obtained", "required": false}
+      ],
+      "key_case_law": "State of Karnataka v. Suresh (2001)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "324",
+      "bns_act_code": "BNS",
+      "bns_section": "117",
+      "offence_title": "Voluntarily Causing Hurt by Dangerous Weapons or Means",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine, or both",
+      "elements": ["Hurt caused by shooting, stabbing, cutting", "OR use of fire, heated substance, poison, corrosive substance, explosive"],
+      "ingredient_checklist": [
+        {"item": "Hurt established (BNS 115 elements)", "required": true},
+        {"item": "Weapon or dangerous means used is documented (seized)", "required": true},
+        {"item": "Weapon capable of causing death", "required": false}
+      ],
+      "key_case_law": "Rajinder Kumar v. State of UP (2007)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "326",
+      "bns_act_code": "BNS",
+      "bns_section": "118",
+      "offence_title": "Voluntarily Causing Grievous Hurt by Dangerous Weapons",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Life Imprisonment + Fine, or Imprisonment up to 10 years + Fine",
+      "elements": ["Grievous hurt caused by dangerous weapon or means", "Voluntary act with intent or knowledge"],
+      "ingredient_checklist": [
+        {"item": "Grievous hurt established (permanent disability, dangerous limb injury, etc.)", "required": true},
+        {"item": "Weapon / dangerous means used", "required": true},
+        {"item": "Medical report specifying nature of grievous injury", "required": true}
+      ],
+      "key_case_law": "State of UP v. Ram Swarup (1974)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "341",
+      "bns_act_code": "BNS",
+      "bns_section": "126",
+      "offence_title": "Wrongful Restraint",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "1 month imprisonment + Fine of Rs 500, or both",
+      "elements": ["Voluntarily obstructs a person", "Preventing from proceeding in a direction the person has right to proceed"],
+      "ingredient_checklist": [
+        {"item": "Obstruction was physical or by show of force", "required": true},
+        {"item": "Person was prevented from exercising legal right of movement", "required": true}
+      ],
+      "key_case_law": "State v. Dharam Pal (1975)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "342",
+      "bns_act_code": "BNS",
+      "bns_section": "127",
+      "offence_title": "Wrongful Confinement",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": false,
+      "max_punishment": "1 year imprisonment + Fine of Rs 1000, or both",
+      "elements": ["Wrongful restraint in all directions (not just one)", "Unlawful detention of a person"],
+      "ingredient_checklist": [
+        {"item": "Person was confined in a bounded space", "required": true},
+        {"item": "Detention was without legal authority", "required": true},
+        {"item": "Duration of confinement established", "required": false}
+      ],
+      "key_case_law": "Bhim Singh v. State of J&K (1985)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "363",
+      "bns_act_code": "BNS",
+      "bns_section": "137",
+      "offence_title": "Kidnapping",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "7 years imprisonment + Fine",
+      "elements": ["Taking or enticing away a person from lawful guardianship", "Without consent of guardian (for minors)", "OR by force / deceit (for adults)"],
+      "ingredient_checklist": [
+        {"item": "Victim is a minor (under 16 for males / 18 for females) OR adult taken by force", "required": true},
+        {"item": "Removal from lawful guardianship established", "required": true},
+        {"item": "Consent of guardian (if minor) was not obtained", "required": true},
+        {"item": "POCSO Act applicable if victim is a child", "required": false}
+      ],
+      "key_case_law": "State v. Sanjay Kumar (2020)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "364",
+      "bns_act_code": "BNS",
+      "bns_section": "139",
+      "offence_title": "Kidnapping or Abduction for Murder",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Life Imprisonment + Fine",
+      "elements": ["Kidnapping or abduction", "With intent that victim be murdered or put in danger of being murdered"],
+      "ingredient_checklist": [
+        {"item": "Kidnapping elements established (BNS 137)", "required": true},
+        {"item": "Intent to murder or expose to danger of murder", "required": true}
+      ],
+      "key_case_law": "Prabhu Babaji Navle v. State of Bombay (1956)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "498A",
+      "bns_act_code": "BNS",
+      "bns_section": "85",
+      "offence_title": "Cruelty by Husband or Relatives (Domestic Violence)",
+      "offence_category": "Offences Against Women",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine",
+      "elements": ["Husband or relative of husband", "Subjects a woman to cruelty", "Cruelty = wilful conduct driving to suicide / grave injury OR harassment for dowry"],
+      "ingredient_checklist": [
+        {"item": "Victim is married woman", "required": true},
+        {"item": "Accused is husband or husband's relative", "required": true},
+        {"item": "Acts of cruelty (physical/mental/economic) documented", "required": true},
+        {"item": "Domestic Incident Report filed under Protection of Women from DV Act 2005", "required": false}
+      ],
+      "key_case_law": "Sushil Kumar Sharma v. Union of India (2005)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "304B",
+      "bns_act_code": "BNS",
+      "bns_section": "80",
+      "offence_title": "Dowry Death",
+      "offence_category": "Offences Against Women",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Minimum 7 years to Life Imprisonment",
+      "elements": ["Death of woman within 7 years of marriage by burns, bodily injury, or in suspicious circumstances", "Woman subjected to cruelty or harassment for dowry demands soon before death"],
+      "ingredient_checklist": [
+        {"item": "Death occurred within 7 years of marriage", "required": true},
+        {"item": "Circumstances of death are suspicious (not natural)", "required": true},
+        {"item": "Evidence of dowry demands / harassment before death", "required": true},
+        {"item": "Panchnama and forensic report obtained", "required": true},
+        {"item": "Section 113B Evidence Act presumption applicable", "required": false}
+      ],
+      "key_case_law": "Shanti v. State of Haryana (1991)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "509",
+      "bns_act_code": "BNS",
+      "bns_section": "79",
+      "offence_title": "Word, Gesture, or Act Intended to Insult the Modesty of a Woman",
+      "offence_category": "Offences Against Women",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "3 years imprisonment + Fine",
+      "elements": ["Word, sound, or gesture made", "With intention of insulting modesty of a woman", "Intrudes upon privacy of a woman"],
+      "ingredient_checklist": [
+        {"item": "Act/word/gesture directed at a woman", "required": true},
+        {"item": "Intent to insult modesty established", "required": true},
+        {"item": "Victim's statement recorded", "required": true}
+      ],
+      "key_case_law": "Rupan Deol Bajaj v. KPS Gill (1995)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "153A",
+      "bns_act_code": "BNS",
+      "bns_section": "196",
+      "offence_title": "Promoting Enmity Between Groups on Grounds of Religion, Race, Caste, etc.",
+      "offence_category": "Offences Against Public Tranquility",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine; 5 years if at place of worship",
+      "elements": ["Words, signs, visible representations", "Promoting disharmony or feelings of enmity between groups"],
+      "ingredient_checklist": [
+        {"item": "Specific words/content promoting enmity identified and documented", "required": true},
+        {"item": "Target group identifiable by religion, race, caste, language, etc.", "required": true},
+        {"item": "Content likely to cause public disorder", "required": true}
+      ],
+      "key_case_law": "Balwant Singh v. State of Punjab (1995)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "186",
+      "bns_act_code": "BNS",
+      "bns_section": "221",
+      "offence_title": "Obstructing Public Servant in Discharge of Public Functions",
+      "offence_category": "Offences Against Public Authority",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "3 months imprisonment + Fine of Rs 500, or both",
+      "elements": ["Voluntarily obstructs a public servant", "Obstruction is in discharge of public functions"],
+      "ingredient_checklist": [
+        {"item": "Complainant is a public servant acting in official capacity", "required": true},
+        {"item": "Obstruction was voluntary (not inadvertent)", "required": true},
+        {"item": "Function being obstructed was lawful", "required": true}
+      ],
+      "key_case_law": "Biswabhusan Naik v. State (1954)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "353",
+      "bns_act_code": "BNS",
+      "bns_section": "132",
+      "offence_title": "Assault or Criminal Force to Deter a Public Servant from Discharge of Duty",
+      "offence_category": "Offences Against Public Authority",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "2 years imprisonment + Fine, or both",
+      "elements": ["Assault or criminal force used", "Against a public servant", "With intent to prevent or deter from performing duties"],
+      "ingredient_checklist": [
+        {"item": "Victim is a public servant on duty", "required": true},
+        {"item": "Assault or use of force established", "required": true},
+        {"item": "Medical certificate for injuries (if any)", "required": false},
+        {"item": "FIR report of on-duty officer (GD entry)", "required": true}
+      ],
+      "key_case_law": "State of AP v. N. Venugopal (1964)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "182",
+      "bns_act_code": "BNS",
+      "bns_section": "216",
+      "offence_title": "False Information to Public Servant",
+      "offence_category": "Offences Against Public Authority",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "6 months imprisonment + Fine of Rs 1000, or both",
+      "elements": ["Giving false information to public servant", "Intending to cause such servant to use lawful power to injure another"],
+      "ingredient_checklist": [
+        {"item": "Information given was false and known to be so", "required": true},
+        {"item": "Information given to a public servant", "required": true},
+        {"item": "Intent to cause wrongful injury to another through the servant", "required": true}
+      ],
+      "key_case_law": "Jagannath v. Emperor (1909)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "120B",
+      "bns_act_code": "BNS",
+      "bns_section": "61",
+      "offence_title": "Criminal Conspiracy",
+      "offence_category": "Group Offences",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Same as substantive offence conspired to commit; up to 6 months if minor offence",
+      "elements": ["Agreement between 2 or more persons", "To commit an illegal act or legal act by illegal means"],
+      "ingredient_checklist": [
+        {"item": "2 or more persons involved", "required": true},
+        {"item": "Agreement to commit illegal act established", "required": true},
+        {"item": "Overt act done in furtherance of conspiracy (for minor offences)", "required": false},
+        {"item": "Communication records / CDRs documenting conspiracy", "required": false}
+      ],
+      "key_case_law": "Mohd. Khalid v. State of West Bengal (2002)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "34",
+      "bns_act_code": "BNS",
+      "bns_section": "3",
+      "offence_title": "Acts Done by Several Persons in Furtherance of Common Intention",
+      "offence_category": "General Exceptions / Joint Liability",
+      "gravity_class": 1,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Same as principal offender",
+      "elements": ["Criminal act done by several persons", "In furtherance of common intention of all"],
+      "ingredient_checklist": [
+        {"item": "Common intention shared by all co-accused established", "required": true},
+        {"item": "Each accused was present at scene of crime", "required": true},
+        {"item": "Each accused participated in the criminal act", "required": true}
+      ],
+      "key_case_law": "Mahboob Shah v. Emperor (1945)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "279",
+      "bns_act_code": "BNS",
+      "bns_section": "280",
+      "offence_title": "Rash Driving or Riding on Public Way",
+      "offence_category": "Offences Against Public Safety",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "6 months imprisonment + Fine of Rs 1000, or both",
+      "elements": ["Drives or rides on public way", "In manner so rash or negligent as to endanger life"],
+      "ingredient_checklist": [
+        {"item": "Occurrence on public road established", "required": true},
+        {"item": "Rash or negligent driving manner documented (speed, video)", "required": true},
+        {"item": "Life or limb of others endangered", "required": true}
+      ],
+      "key_case_law": "Rattan Singh v. State of Punjab (1980)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "304A",
+      "bns_act_code": "BNS",
+      "bns_section": "106",
+      "offence_title": "Causing Death by Negligence",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 2,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "2 years imprisonment + Fine, or both; 5 years for hit-and-run (new BNS provision)",
+      "elements": ["Death caused by rash or negligent act", "Not amounting to culpable homicide"],
+      "ingredient_checklist": [
+        {"item": "Death of victim established (post-mortem)", "required": true},
+        {"item": "Act of accused was the proximate cause of death", "required": true},
+        {"item": "Act was rash or negligent (not intentional)", "required": true},
+        {"item": "For hit-and-run: accused fled scene (attracts 5-year provision under BNS)", "required": false}
+      ],
+      "key_case_law": "Jacob Mathew v. State of Punjab (2005) — medical negligence; Alister v. State of Maharashtra (1966)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "465",
+      "bns_act_code": "BNS",
+      "bns_section": "336A",
+      "offence_title": "Forgery",
+      "offence_category": "Offences Relating to Documents",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "2 years imprisonment + Fine, or both",
+      "elements": ["Making a false document or false electronic record", "Intent to cause damage or injury / to support a claim / to commit fraud"],
+      "ingredient_checklist": [
+        {"item": "False document / e-record identified and seized", "required": true},
+        {"item": "Forgery established through expert examination (handwriting / digital forensics)", "required": true},
+        {"item": "Intent to deceive established", "required": true},
+        {"item": "Victim or institution affected identified", "required": false}
+      ],
+      "key_case_law": "State of Bihar v. Om Prakash (1991)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "468",
+      "bns_act_code": "BNS",
+      "bns_section": "336C",
+      "offence_title": "Forgery for Purpose of Cheating",
+      "offence_category": "Offences Relating to Documents",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "7 years imprisonment + Fine",
+      "elements": ["Forgery committed", "For the purpose of cheating"],
+      "ingredient_checklist": [
+        {"item": "Forgery established (BNS 336A elements)", "required": true},
+        {"item": "Purpose of forgery was to cheat another person", "required": true},
+        {"item": "Cheating (BNS 318) also established", "required": false}
+      ],
+      "key_case_law": "Sheetal Prasad Dixit v. State of UP (1999)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "471",
+      "bns_act_code": "BNS",
+      "bns_section": "336E",
+      "offence_title": "Using as Genuine a Forged Document",
+      "offence_category": "Offences Relating to Documents",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Same as forging the document",
+      "elements": ["Uses a forged document or electronic record", "As if it were genuine", "Knowing or having reason to believe it is forged"],
+      "ingredient_checklist": [
+        {"item": "Document established as forged (BNS 336A)", "required": true},
+        {"item": "Accused used the document as genuine", "required": true},
+        {"item": "Knowledge of forgery at time of use established", "required": true}
+      ],
+      "key_case_law": "Ram Narayan Popli v. CBI (2003)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "489A",
+      "bns_act_code": "BNS",
+      "bns_section": "357",
+      "offence_title": "Counterfeiting Currency Notes or Bank Notes",
+      "offence_category": "Offences Relating to Currency",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Life Imprisonment + Fine",
+      "elements": ["Counterfeiting of currency note or bank note", "Knowledge that it is a counterfeit"],
+      "ingredient_checklist": [
+        {"item": "Fake currency notes seized and sent for forensic examination", "required": true},
+        {"item": "RBI / currency expert report confirming counterfeiting", "required": true},
+        {"item": "Accused in possession of / producing counterfeit notes", "required": true},
+        {"item": "FICN database cross-check conducted", "required": false}
+      ],
+      "key_case_law": "Superintendent of Police v. Dinakar (2008)"
+    },
+    {
+      "legacy_act_code": "NDPS",
+      "legacy_section": "21",
+      "bns_act_code": "NDPS",
+      "bns_section": "21",
+      "offence_title": "Possession, Sale, Purchase of Manufactured Drugs (NDPS Act)",
+      "offence_category": "Narcotics / Drug Offences",
+      "gravity_class": 5,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "10 years to Life Imprisonment + Fine (based on quantity: small / commercial)",
+      "elements": ["Possession, sale, purchase, transport, use of manufactured drugs", "Without lawful authority"],
+      "ingredient_checklist": [
+        {"item": "Drug seized and sent for chemical analysis", "required": true},
+        {"item": "CFSL / FSL report confirming drug nature", "required": true},
+        {"item": "Quantity determined (small / intermediate / commercial)", "required": true},
+        {"item": "Section 50 NDPS compliance (search in presence of gazetted officer / magistrate)", "required": true},
+        {"item": "Accused offered option of Magistrate for search", "required": true}
+      ],
+      "key_case_law": "State of Punjab v. Baljinder Singh (2019) — Section 50 compliance mandatory"
+    },
+    {
+      "legacy_act_code": "IT Act",
+      "legacy_section": "66C",
+      "bns_act_code": "IT Act",
+      "bns_section": "66C",
+      "offence_title": "Identity Theft (IT Act 2000)",
+      "offence_category": "Cyber Crime",
+      "gravity_class": 6,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine up to Rs 1 Lakh",
+      "elements": ["Fraudulent or dishonest use of electronic signature, password, or other unique identification feature of another person"],
+      "ingredient_checklist": [
+        {"item": "Electronic identity credential (OTP, password, UPI PIN) used without authorisation", "required": true},
+        {"item": "Digital forensic evidence (device, IP, transaction logs) collected", "required": true},
+        {"item": "Victim's loss documented", "required": true},
+        {"item": "Cyber Cell FIR filed and 1930 reported", "required": false},
+        {"item": "Bank account freeze requested if financial fraud involved", "required": false}
+      ],
+      "key_case_law": "Vinod Kumar v. State of Haryana (2015)"
+    },
+    {
+      "legacy_act_code": "IT Act",
+      "legacy_section": "66D",
+      "bns_act_code": "IT Act",
+      "bns_section": "66D",
+      "offence_title": "Cheating by Personation Using Computer Resources (IT Act)",
+      "offence_category": "Cyber Crime",
+      "gravity_class": 6,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine up to Rs 1 Lakh",
+      "elements": ["Cheating by personating another person using computer resources or communication device"],
+      "ingredient_checklist": [
+        {"item": "Accused impersonated another through digital means", "required": true},
+        {"item": "Communication device / computer resource identified", "required": true},
+        {"item": "Fraudulent intent established", "required": true},
+        {"item": "Apply BNS 318 (Cheating) in addition if property obtained", "required": false}
+      ],
+      "key_case_law": "Avnish Bajaj v. State (2005)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "143",
+      "bns_act_code": "BNS",
+      "bns_section": "189",
+      "offence_title": "Member of Unlawful Assembly",
+      "offence_category": "Offences Against Public Tranquility",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "6 months imprisonment + Fine",
+      "elements": ["Member of an unlawful assembly (5 or more persons)", "Assembly with common object to commit offence / resist legal process"],
+      "ingredient_checklist": [
+        {"item": "Assembly of 5 or more persons established", "required": true},
+        {"item": "Common unlawful object identified", "required": true},
+        {"item": "Accused was a member of the assembly", "required": true}
+      ],
+      "key_case_law": "Masalti v. State of UP (1964)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "147",
+      "bns_act_code": "BNS",
+      "bns_section": "191",
+      "offence_title": "Rioting",
+      "offence_category": "Offences Against Public Tranquility",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "2 years imprisonment + Fine",
+      "elements": ["Unlawful assembly", "Use of force or violence by members", "In prosecution of common object"],
+      "ingredient_checklist": [
+        {"item": "Unlawful assembly established (BNS 189)", "required": true},
+        {"item": "Force or violence used by assembly members", "required": true},
+        {"item": "Accused actively participated (not merely present)", "required": true},
+        {"item": "Video/CCTV evidence of violence obtained", "required": false}
+      ],
+      "key_case_law": "Moti Das v. State of Bihar (1954)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "148",
+      "bns_act_code": "BNS",
+      "bns_section": "192",
+      "offence_title": "Rioting with Deadly Weapon",
+      "offence_category": "Offences Against Public Tranquility",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine",
+      "elements": ["Rioting", "Armed with deadly weapon / anything used as weapon for causing death"],
+      "ingredient_checklist": [
+        {"item": "Rioting elements established (BNS 191)", "required": true},
+        {"item": "Deadly weapon carried / used by accused", "required": true},
+        {"item": "Weapon seized and documented in panchnama", "required": true}
+      ],
+      "key_case_law": "State of UP v. Sughar Singh (1978)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "201",
+      "bns_act_code": "BNS",
+      "bns_section": "238",
+      "offence_title": "Causing Disappearance of Evidence / Giving False Information to Screen Offender",
+      "offence_category": "Offences Against Justice",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": false,
+      "max_punishment": "Same as principal offence (max 7 years if murder)",
+      "elements": ["Causes any evidence to disappear", "OR gives false information to screen any offender from legal punishment"],
+      "ingredient_checklist": [
+        {"item": "Evidence was deliberately destroyed or concealed", "required": true},
+        {"item": "Accused knew of commission of the principal offence", "required": true},
+        {"item": "Intent to screen the offender from legal punishment", "required": true}
+      ],
+      "key_case_law": "Gura Singh v. State of Rajasthan (2001)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "411",
+      "bns_act_code": "BNS",
+      "bns_section": "317",
+      "offence_title": "Dishonestly Receiving Stolen Property",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 1,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine, or both",
+      "elements": ["Dishonestly receives or retains stolen property", "Having reason to believe it to be stolen"],
+      "ingredient_checklist": [
+        {"item": "Property established as stolen (linked FIR)", "required": true},
+        {"item": "Property found in possession of accused", "required": true},
+        {"item": "Accused had reason to believe property was stolen", "required": true}
+      ],
+      "key_case_law": "State v. Mohan Lal (1989)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "500",
+      "bns_act_code": "BNS",
+      "bns_section": "356",
+      "offence_title": "Defamation",
+      "offence_category": "Offences Against Reputation",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "2 years imprisonment + Fine, or both",
+      "elements": ["Makes or publishes any imputation concerning a person", "With intent to harm or knowledge that harm will be caused to reputation"],
+      "ingredient_checklist": [
+        {"item": "Imputation is about a specific identifiable person", "required": true},
+        {"item": "Imputation is false and published to third parties", "required": true},
+        {"item": "Harm to reputation established", "required": true},
+        {"item": "None of the defamation exceptions apply (truth for public good, fair comment, etc.)", "required": true}
+      ],
+      "key_case_law": "Subramanian Swamy v. Union of India (2016)"
+    },
+    {
+      "legacy_act_code": "POCSO",
+      "legacy_section": "4",
+      "bns_act_code": "POCSO",
+      "bns_section": "4",
+      "offence_title": "Penetrative Sexual Assault on Child (POCSO Act 2012)",
+      "offence_category": "Sexual Offences Against Children",
+      "gravity_class": 5,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Minimum 10 years Rigorous Imprisonment to Life + Fine",
+      "elements": ["Penetrative sexual assault", "Committed against a child (under 18 years)"],
+      "ingredient_checklist": [
+        {"item": "Victim is under 18 years of age (birth certificate / school records)", "required": true},
+        {"item": "Medical examination of child conducted by qualified doctor", "required": true},
+        {"item": "Child's statement recorded before Magistrate (Section 164 CrPC)", "required": true},
+        {"item": "Special Court / POCSO Court intimated", "required": true},
+        {"item": "Child Welfare Committee (CWC) notified", "required": true},
+        {"item": "CCTV/VCD recording of statement if possible", "required": false}
+      ],
+      "key_case_law": "Independent Thought v. Union of India (2017)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "294",
+      "bns_act_code": "BNS",
+      "bns_section": "296",
+      "offence_title": "Obscene Acts and Songs in Public Places",
+      "offence_category": "Offences Against Public Decency",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "3 months imprisonment + Fine",
+      "elements": ["Obscene act in public place to annoyance of others", "OR singing / reciting obscene songs in public"],
+      "ingredient_checklist": [
+        {"item": "Act occurred in a public place", "required": true},
+        {"item": "Act caused annoyance to persons present", "required": true},
+        {"item": "Nature of act is obscene (not merely indecent)", "required": true}
+      ],
+      "key_case_law": "Ranjit D. Udeshi v. State of Maharashtra (1964)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "308",
+      "bns_act_code": "BNS",
+      "bns_section": "110",
+      "offence_title": "Attempt to Commit Culpable Homicide Not Amounting to Murder",
+      "offence_category": "Offences Against the Human Body",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years + Fine if no hurt; 7 years + Fine if hurt caused",
+      "elements": ["Act done with intention of committing culpable homicide", "Act not amounting to attempt to murder"],
+      "ingredient_checklist": [
+        {"item": "Intention to cause death (but not premeditated murder intent)", "required": true},
+        {"item": "Overt act toward causing death", "required": true},
+        {"item": "Distinguished from BNS 109 (Attempt to Murder)", "required": true}
+      ],
+      "key_case_law": "State of Karnataka v. Razak Khan (1996)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "188",
+      "bns_act_code": "BNS",
+      "bns_section": "223",
+      "offence_title": "Disobedience to Order Duly Promulgated by Public Servant",
+      "offence_category": "Offences Against Public Authority",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "1 month to 6 months imprisonment + Fine (if danger to human life)",
+      "elements": ["Order lawfully promulgated by public servant", "Accused knowingly disobeys", "Obstruction, annoyance, or injury to legally employed persons results"],
+      "ingredient_checklist": [
+        {"item": "Order is lawfully promulgated and published (Section 144 CrPC / BNSS)", "required": true},
+        {"item": "Accused had knowledge of the order", "required": true},
+        {"item": "Disobedience caused/likely to cause obstruction or injury", "required": true}
+      ],
+      "key_case_law": "Babulal Parate v. State of Maharashtra (1960)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "427",
+      "bns_act_code": "BNS",
+      "bns_section": "324",
+      "offence_title": "Mischief Causing Damage to Property (Rs 50 or above)",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 1,
+      "bail_status": "Bailable",
+      "cognizable": false,
+      "max_punishment": "2 years imprisonment + Fine, or both",
+      "elements": ["Destroys or diminishes value of property", "Damage amount Rs 50 or more"],
+      "ingredient_checklist": [
+        {"item": "Property damage established through valuation", "required": true},
+        {"item": "Damage amount exceeds Rs 50 (Rs 10,000 in practice for FIR)", "required": true},
+        {"item": "Accused caused the damage intentionally", "required": true}
+      ],
+      "key_case_law": "State of Rajasthan v. Gopal Lal (1979)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "436",
+      "bns_act_code": "BNS",
+      "bns_section": "327",
+      "offence_title": "Mischief by Fire or Explosive Substance to Destroy House, etc.",
+      "offence_category": "Offences Against Property",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Life Imprisonment + Fine",
+      "elements": ["Commits mischief by fire or explosive substance", "Destroys or damages a building used as dwelling / worship / custody of property"],
+      "ingredient_checklist": [
+        {"item": "Fire or explosion established as the cause of damage", "required": true},
+        {"item": "Building used as dwelling, worship, or property custody", "required": true},
+        {"item": "Accused intentionally set the fire / caused explosion", "required": true},
+        {"item": "Forensic fire investigation report obtained", "required": true}
+      ],
+      "key_case_law": "State of Maharashtra v. Sarfaraz (2001)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "505",
+      "bns_act_code": "BNS",
+      "bns_section": "353",
+      "offence_title": "Statements Conducing to Public Mischief",
+      "offence_category": "Offences Against Public Tranquility",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "2 years imprisonment + Fine; 5 years if communal disharmony provoked",
+      "elements": ["Makes, publishes, or circulates statements", "With intent or likelihood of causing fear, alarm, incitement to offence"],
+      "ingredient_checklist": [
+        {"item": "Statement / publication identified and preserved", "required": true},
+        {"item": "Intent to cause public mischief or alarm established", "required": true},
+        {"item": "Statements targeted specific community (if communal charges)", "required": false}
+      ],
+      "key_case_law": "Kedar Nath Singh v. State of Bihar (1962)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "114",
+      "bns_act_code": "BNS",
+      "bns_section": "49",
+      "offence_title": "Abettor Present When Offence is Committed",
+      "offence_category": "Abetment",
+      "gravity_class": 2,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Same as principal offence",
+      "elements": ["Person abets the commission of an offence", "Is present at time of commission of offence"],
+      "ingredient_checklist": [
+        {"item": "Abetment established (instigation / conspiracy / assistance)", "required": true},
+        {"item": "Accused was physically present at scene of crime", "required": true},
+        {"item": "Principal offence was committed", "required": true}
+      ],
+      "key_case_law": "Dhananjaya Reddy v. State of Karnataka (2001)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "107",
+      "bns_act_code": "BNS",
+      "bns_section": "45",
+      "offence_title": "Abetment of a Thing",
+      "offence_category": "Abetment",
+      "gravity_class": 1,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "Same as abetted offence",
+      "elements": ["Instigates any person to commit an offence", "OR engages in a conspiracy for commission of offence", "OR intentionally aids commission"],
+      "ingredient_checklist": [
+        {"item": "Mode of abetment (instigation / conspiracy / aiding) clearly established", "required": true},
+        {"item": "Principal offence was committed (or attempted)", "required": true},
+        {"item": "Nexus between abettor and principal offence demonstrated", "required": true}
+      ],
+      "key_case_law": "Som Nath Thapa v. State of Maharashtra (1996)"
+    },
+    {
+      "legacy_act_code": "Arms Act",
+      "legacy_section": "25",
+      "bns_act_code": "Arms Act",
+      "bns_section": "25",
+      "offence_title": "Illegal Possession / Use of Arms (Arms Act 1959)",
+      "offence_category": "Arms / Weapons Offences",
+      "gravity_class": 3,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years to Life Imprisonment (based on nature of arm)",
+      "elements": ["Possession, use, manufacture of arms / ammunition", "Without valid licence or in contravention of Arms Act"],
+      "ingredient_checklist": [
+        {"item": "Arm / ammunition seized and sent for ballistic examination", "required": true},
+        {"item": "No valid licence exists for accused", "required": true},
+        {"item": "Ballistics report confirming weapon nature (country-made / licensed type)", "required": true},
+        {"item": "FSL report on operational status of firearm", "required": true}
+      ],
+      "key_case_law": "State of Karnataka v. Yadavappa (2009)"
+    },
+    {
+      "legacy_act_code": "IPC",
+      "legacy_section": "174A",
+      "bns_act_code": "BNS",
+      "bns_section": "209",
+      "offence_title": "Non-Appearance in Response to Proclamation under Section 82 CrPC",
+      "offence_category": "Offences Against Justice",
+      "gravity_class": 1,
+      "bail_status": "Non-Bailable",
+      "cognizable": true,
+      "max_punishment": "3 years imprisonment + Fine; 7 years if offence is punishable with life/death",
+      "elements": ["Person fails to appear at specified place/time after proclamation", "Proclamation issued under Section 82 CrPC / BNSS"],
+      "ingredient_checklist": [
+        {"item": "Proclamation under Section 82 CrPC / Section 84 BNSS issued and served", "required": true},
+        {"item": "Period of 30 days elapsed since proclamation", "required": true},
+        {"item": "Accused failed to appear as directed", "required": true},
+        {"item": "Gazette publication / beat-level notice documented", "required": true}
+      ],
+      "key_case_law": "Sube Singh v. State of Haryana (2006)"
+    }
+  ]
+}

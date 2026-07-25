@@ -6,7 +6,10 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
+// SECURITY: DATABASE_URL MUST be set via Catalyst Vault / environment variable in all non-local environments.
+// The fallback below is ONLY for local development (default postgres credentials — never commit real creds).
 const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/trinetra_db';
+
 
 let pool = null;
 let isConnected = false;

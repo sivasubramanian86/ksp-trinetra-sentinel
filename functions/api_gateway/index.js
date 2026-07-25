@@ -5,6 +5,12 @@ const { getThreatVector, traceSyndicateNetwork, analyzeMultimodalEvidence, query
 const { handleRAGQuery } = require('./rag_orchestrator');
 const { verifyRole, authenticate } = require('./auth');
 
+// ── New API Routers (Phase 3) ─────────────────────────────────────────────────
+const casesRouter     = require('./api/cases');
+const analyticsRouter = require('./api/analytics');
+const operationsRouter = require('./api/operations');
+
+
 const app = express();
 app.use(cors());
 
@@ -96,12 +102,24 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
     service: 'KSP Trinetra Sentinel API Gateway',
+    version: '2.0.0',
     catalystCache: cacheSegment ? 'ENABLED' : 'MEMORY_FALLBACK',
     timestamp: new Date().toISOString(),
+    routes: [
+      '/api/v1/cases', '/api/v1/cases/search', '/api/v1/cases/:id',
+      '/api/v1/analytics/snapshot', '/api/v1/analytics/chargesheet-lag',
+      '/api/v1/analytics/arrest-performance', '/api/v1/analytics/victim-journey/:id',
+      '/api/v1/operations/plan', '/api/v1/operations/plans',
+    ],
   });
 });
 
-// 1. Spatio-Temporal Hotspot Risk Forecast (Cached for 15 minutes)
+// ── FIR Schema API Routers (Phase 3) ─────────────────────────────────────────
+app.use('/api/v1/cases',      casesRouter);
+app.use('/api/v1/analytics',  analyticsRouter);
+app.use('/api/v1/operations', operationsRouter);
+
+// ───────────────────────────────────────────────────────────────────────────── (Cached for 15 minutes)
 app.get('/api/hotspots/forecast', verifyRole(['COMMISSIONER', 'ANALYST', 'PATROL_OFFICER']), async (req, res) => {
   try {
     const lat = req.query.lat || 12.9716;

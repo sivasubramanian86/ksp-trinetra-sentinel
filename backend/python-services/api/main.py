@@ -22,6 +22,8 @@ from models.multimodal_processor import multimodal_processor
 
 from forensics.orchestrator import dissect_forensic_case
 from forensics.schemas.forensic_output import EarlyLeadSynthesis
+from forensics.orchestrator import router as forensics_router
+from api.fir_analytics import router as fir_analytics_router
 
 app = FastAPI(
     title="KSP Trinetra Sentinel - Python ML Microservice Engine",
@@ -140,3 +142,7 @@ async def dissect_forensics(req: ForensicDissectRequest):
         return synthesis
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# ── Mount additional API routers ───────────────────────────────────────────────
+app.include_router(forensics_router)
+app.include_router(fir_analytics_router)
