@@ -3,13 +3,14 @@
     "source": "client/out",
     "build": "npm run build --prefix client"
   },
-  "functions": {
-    "targets": [
-      "functions/api_gateway"
-    ],
-    "ignore": [
-      ".git",
-      "node_modules"
+  "cache": {
+    "segments": [
+      {
+        "name": "ksp_context_cache"
+      }
     ]
+  },
+  "security_rules": {
+    "file": "security_rules.json"
   }
 }

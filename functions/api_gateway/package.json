@@ -1,7 +1,7 @@
 {
-  "name": "trinetra-api-gateway",
+  "name": "api_gateway",
   "version": "1.0.0",
-  "description": "Zoho Catalyst Node.js Serverless API Gateway for KSP Trinetra Sentinel",
+  "description": "Zoho Catalyst Advanced I/O Express Serverless Gateway for KSP Trinetra Sentinel",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,8 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "ksp-trinetra-sentinel": "file:../..",
-    "pg": "^8.11.5"
+    "pg": "^8.11.5",
+    "zcatalyst-sdk-node": "^1.15.0"
   },
   "engines": {
     "node": ">=18.0.0"

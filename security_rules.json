@@ -1,0 +1,12 @@
+{
+  "datastore": {
+    "read": "request.auth != null && (request.auth.role == 'COMMISSIONER' || request.auth.role == 'ANALYST' || request.auth.role == 'PATROL_OFFICER')",
+    "write": "request.auth != null && (request.auth.role == 'COMMISSIONER' || request.auth.role == 'ANALYST')",
+    "delete": "request.auth != null && request.auth.role == 'COMMISSIONER'"
+  },
+  "functions": {
+    "api_gateway": {
+      "execute": "request.auth != null"
+    }
+  }
+}

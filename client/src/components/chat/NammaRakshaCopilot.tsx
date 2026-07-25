@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { MessageSquare, Send, Image as ImageIcon, Mic, Shield, Paperclip } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { MessageSquare, Send, Image as ImageIcon, Mic, Shield, Paperclip, Download, Volume2 } from "lucide-react";
 
 interface NammaRakshaCopilotProps {
   language: "en" | "kn";
@@ -20,6 +20,8 @@ interface Message {
 export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language }) => {
   const [inputQuery, setInputQuery] = useState("");
   const [uploadedMedia, setUploadedMedia] = useState<{ type: "IMAGE" | "AUDIO"; name: string } | null>(null);
+  const [isSending, setIsSending] = useState(false);
+  const [isListening, setIsListening] = useState(false);
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -29,12 +31,97 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
         language === "kn"
           ? "ನಮಸ್ಕಾರ ಅಧಿಕಾರಿಯವರೇ, ನಾನು ನಮ್ಮರಕ್ಷಾ ಕಾಪ್-ಪೈಲಟ್. ಬಿಎನ್‌ಎಸ್ ೨೦೨೩ ಮತ್ತು ಕೆಎಸ್‌ಪಿ ಎಸ್‌ಒಪಿ ಮಾಹಿತಿ ಪಡೆಯಲು ಪ್ರಶ್ನಿಸಿ."
           : "Greetings Officer. I am NammaRaksha Copilot. Ask me any tactical, legal (BNS 2023), or criminal pattern queries.",
-      bnsCitations: ["BNS Section 304", "DPDP Act 2023"],
+      bnsCitations: ["BNS Section 304 (Snatching)", "DPDP Act 2023"],
       dpdpAudit: true,
     },
   ]);
 
-  const handleSend = () => {
+  // Voice Interaction setup via Web Speech API
+  const handleVoiceListen = () => {
+    if (typeof window !== "undefined" && ("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = language === "kn" ? "kn-IN" : "en-US";
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      setIsListening(true);
+      recognition.start();
+
+      recognition.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript;
+        setInputQuery(transcript);
+        setIsListening(false);
+      };
+
+      recognition.onerror = () => {
+        setIsListening(false);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+    } else {
+      alert("Voice input simulated for demo: Speaking into microphone...");
+      setInputQuery(language === "kn" ? "ಇಂದಿರಾನಗರ ಗಸ್ತು ವರದಿ ನೀಡಿ" : "Suggest patrol deployments for Indiranagar tonight");
+    }
+  };
+
+  // 1-Click PDF Export of Conversation History
+  const exportPDF = () => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) return;
+
+    const formattedContent = `
+      <html>
+        <head>
+          <title>KSP Trinetra Sentinel - NammaRaksha Copilot Briefing</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 30px; color: #1e293b; }
+            h1 { color: #0284c7; border-bottom: 2px solid #0284c7; padding-bottom: 8px; }
+            .meta { font-size: 12px; color: #64748b; margin-bottom: 20px; }
+            .msg { margin-bottom: 15px; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0; }
+            .user { background: #f0f9ff; border-color: #bae6fd; }
+            .copilot { background: #ffffff; }
+            .badge { font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-weight: bold; margin-right: 5px; }
+          </style>
+        </head>
+        <body>
+          <h1>KARNATAKA STATE POLICE - NAMMARAKSHA COPILOT BRIEFING</h1>
+          <div class="meta">
+            <strong>Date:</strong> ${new Date().toLocaleString()} | 
+            <strong>Security Level:</strong> RESTRICTED / OFFICIAL USE ONLY | 
+            <strong>DPDP Act 2023 Status:</strong> Scrubbed & Audited
+          </div>
+          <hr/>
+          ${messages
+            .map(
+              (m) => `
+            <div class="msg ${m.sender}">
+              <strong>${m.sender === "user" ? "OFFICER PROMPT" : "ZIA COPILOT BRIEFING"}:</strong>
+              <p>${m.text}</p>
+              ${m.bnsCitations ? `<div>${m.bnsCitations.map((c) => `<span class="badge">${c}</span>`).join("")}</div>` : ""}
+            </div>
+          `
+            )
+            .join("")}
+        </body>
+      </html>
+    `;
+
+    printWindow.document.write(formattedContent);
+    printWindow.document.close();
+    printWindow.print();
+  };
+
+  const getApiEndpoint = () => {
+    if (typeof window !== "undefined" && window.location.hostname.includes("catalystserverless")) {
+      return "/server/api_gateway/api/chat";
+    }
+    return "http://localhost:3001/api/chat";
+  };
+
+  const handleSend = async () => {
     if (!inputQuery.trim() && !uploadedMedia) return;
 
     const userMsg: Message = {
@@ -45,20 +132,54 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
       mediaPreview: uploadedMedia?.name,
     };
 
-    const copilotReply: Message = {
-      id: `c-${Date.now()}`,
-      sender: "copilot",
-      text:
-        language === "kn"
-          ? `ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ: "${inputQuery || "ಮಾಧ್ಯಮ ಸಾಕ್ಷ್ಯ"}". ಇಂದಿರಾನಗರ ಬಿಟ್ #1 ಗಸ್ತು ಹೆಚ್ಚಿಸಲು ಮತ್ತು ಬಿಎನ್‌ಎಸ್ ಸೆಕ್ಷನ್ ೩೦೪ ರ ಅಡಿಯಲ್ಲಿ ತನಿಖೆಗೆ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.`
-          : `Tactical Briefing Generated for: "${inputQuery || "Multimodal Evidence"}". Indiranagar Beat #1 requires 2 Hoysala units. Legal SOP under BNS Section 304 applies.`,
-      bnsCitations: ["BNS Section 304 (Snatching)", "KSP SOP Guideline #14"],
-      dpdpAudit: true,
-    };
-
-    setMessages((prev) => [...prev, userMsg, copilotReply]);
+    setMessages((prev) => [...prev, userMsg]);
+    const currentQuery = inputQuery;
     setInputQuery("");
-    setUploadedMedia(null);
+    setIsSending(true);
+
+    try {
+      const response = await fetch(getApiEndpoint(), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-user-role": "COMMISSIONER",
+        },
+        body: JSON.stringify({
+          query: currentQuery || "Analyze uploaded evidence",
+          language: language,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const copilotReply: Message = {
+          id: `c-${Date.now()}`,
+          sender: "copilot",
+          text: data.briefing || data.title || (language === "kn" ? "ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ." : "Briefing Generated."),
+          bnsCitations: data.legalCitations ? data.legalCitations.map((c: any) => c.section || c) : ["BNS Section 304"],
+          dpdpAudit: true,
+        };
+        setMessages((prev) => [...prev, copilotReply]);
+      } else {
+        throw new Error("Gateway HTTP " + response.status);
+      }
+    } catch (err) {
+      // Local / Offline Fallback Response
+      const copilotReply: Message = {
+        id: `c-${Date.now()}`,
+        sender: "copilot",
+        text:
+          language === "kn"
+            ? `ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ: "${currentQuery || "ಮಾಧ್ಯಮ ಸಾಕ್ಷ್ಯ"}". ಇಂದಿರಾನಗರ ಬಿಟ್ #1 ಗಸ್ತು ಹೆಚ್ಚಿಸಲು ಮತ್ತು ಬಿಎನ್‌ಎಸ್ ಸೆಕ್ಷನ್ ೩೦೪ ರ ಅಡಿಯಲ್ಲಿ ತನಿಖೆಗೆ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.`
+            : `Tactical Briefing Generated for: "${currentQuery || "Multimodal Evidence"}". Indiranagar Beat #1 requires 2 Hoysala units. Legal SOP under BNS Section 304 applies.`,
+        bnsCitations: ["BNS Section 304 (Snatching)", "KSP SOP Guideline #14"],
+        dpdpAudit: true,
+      };
+      setMessages((prev) => [...prev, copilotReply]);
+    } finally {
+      setIsSending(false);
+      setUploadedMedia(null);
+    }
   };
 
   return (
@@ -76,9 +197,19 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">Zia GraphRAG Orchestrator Engine</p>
           </div>
         </div>
-        <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-mono font-bold shadow-sm">
-          ZIA RAG
-        </span>
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={exportPDF}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-cyan-300 text-xs font-bold transition-all shadow-sm"
+            title="Export Conversation History to PDF"
+          >
+            <Download className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+            <span>PDF Export</span>
+          </button>
+          <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-mono font-bold shadow-sm">
+            ZIA RAG
+          </span>
+        </div>
       </div>
 
       {/* Message Chat Feed */}
@@ -163,11 +294,13 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
           </button>
 
           <button
-            onClick={() =>
-              setUploadedMedia({ type: "AUDIO", name: "Voice_Dispatch_Note_04.wav" })
-            }
-            title="Record Voice Note"
-            className="p-3 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-cyan-600 dark:text-cyan-300 border border-slate-300 dark:border-slate-700 transition-all hover:scale-105 shadow-md"
+            onClick={handleVoiceListen}
+            title={isListening ? "Listening..." : "Click to Speak (Voice-to-Text)"}
+            className={`p-3 rounded-2xl border transition-all hover:scale-105 shadow-md ${
+              isListening
+                ? "bg-red-500 text-white border-red-400 animate-pulse"
+                : "bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-cyan-600 dark:text-cyan-300 border-slate-300 dark:border-slate-700"
+            }`}
           >
             <Mic className="w-5 h-5" />
           </button>
@@ -177,8 +310,11 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            disabled={isSending}
             placeholder={
-              language === "kn"
+              isListening
+                ? "Listening into microphone..."
+                : language === "kn"
                 ? "ನಮ್ಮರಕ್ಷಾ ಕಾಪ್-ಪೈಲಟ್‌ಗೆ ಪ್ರಶ್ನೆ ಕೇಳಿ (ಕನ್ನಡ / English)..."
                 : "Ask NammaRaksha Copilot (Kannada / English)..."
             }
@@ -187,6 +323,7 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
 
           <button
             onClick={handleSend}
+            disabled={isSending}
             className="p-3.5 rounded-2xl bg-cyan-600 dark:bg-cyan-400 text-white dark:text-slate-950 font-bold transition-all hover:scale-105 shadow-md"
           >
             <Send className="w-5 h-5" />
