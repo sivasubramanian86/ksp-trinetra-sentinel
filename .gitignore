@@ -28,11 +28,13 @@ models/saved/*.pkl
 .catalyst/
 catalyst-runner.json
 
-# Internal prompts & task tracking
+# Internal prompts, plans & task tracking
 prompts/
 tasks/
 tmp/
 .gemini/
+implementation_plan.md
+walkthrough.md
 
 # System & IDE
 .DS_Store

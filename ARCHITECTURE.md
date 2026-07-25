@@ -6,6 +6,33 @@ This document provides a deep technical architectural breakdown of **KSP Trinetr
 
 ---
 
+## 🏛️ System Architecture Diagram
+
+![System Architecture Diagram](docs/images/architecture_diagram.png)
+
+---
+
+## 🔄 User Flow Diagram
+
+![User Flow Diagram](docs/images/user_flow_diagram.png)
+
+---
+
+## 🌩️ 100% Zoho Platform AI/ML & Cloud Integration Matrix
+
+KSP Trinetra Sentinel relies 100% on **Zoho Catalyst** and **Zoho Zia AI** cloud infrastructure:
+
+| Zoho Service / Engine | Project Component | Technical Utilization |
+| :--- | :--- | :--- |
+| **Zoho Catalyst Serverless Functions** | [`functions/api_gateway/`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/functions/api_gateway/index.js) | Node.js Express serverless API gateway hosting REST endpoints. |
+| **Zoho Zia LLM Engine & GraphRAG** | [`rag_orchestrator.js`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/functions/api_gateway/rag_orchestrator.js) | Zia LLM natural language understanding engine generating tactical police briefs with Bharatiya Nyaya Sanhita (BNS 2023) legal citations. |
+| **Zoho Model Context Protocol (MCP)** | [`mcp_server.js`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/functions/api_gateway/mcp_server.js) | Protocol bridge exposing `get_threat_vector`, `trace_syndicate_network`, `analyze_multimodal_evidence`, and `query_ksp_legal_sops`. |
+| **Zoho Catalyst Vault** | [`secrets_vault.js`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/functions/api_gateway/secrets_vault.js) | Enterprise secret store (Secret Manager equivalent) managing database credentials and PII salt tokens. |
+| **Zoho Catalyst Web Client Hosting** | [`client/out/`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/client/out) | Static web hosting configured via [`catalyst.json`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/catalyst.json). |
+| **Zoho Zia Multimodal Intelligence** | [`multimodal_agent.js`](file:///d:/Siva/Books/CAREER/HACKATHON/ksp-trinetra-sentinel/functions/api_gateway/agents/multimodal_agent.js) | CCTV ANPR license plate optical extraction and audio dispatch note processing. |
+
+---
+
 ## 1. System Layers & Monorepo Structure
 
 ```text
@@ -34,16 +61,12 @@ ksp-trinetra-sentinel/
 ├── db/                         # PostgreSQL + PostGIS Schemas & Data Generators
 │   ├── schema/                 # 01_incidents.sql through 07_forensic_leads.sql
 │   └── seeds/seed_data.py      # Synthetic police incident data generator
-├── skills/                     # Workspace Discovery Skills
-│   ├── forensic_dissection/    # Forensic report dissection skill
-│   ├── st_gnn_forecasting/     # Spatio-temporal risk forecasting skill
-│   ├── syndicate_graph_ml/     # Syndicate graph ML skill
-│   └── mcp_zia_graphrag/       # MCP Zia GraphRAG legal lookup skill
-├── scripts/                    # Launch & Deployment Automation
-│   ├── run_local.ps1 / .sh     # Automated process cleanup & local launcher
-│   ├── test_zia_agents.py      # Python integration test suite
-│   └── deploy_catalyst.ps1     # Zoho Catalyst cloud deploy script
-└── docs/                       # Specifications & Security Guidelines
+├── docs/                       # Specifications, Diagrams & Security Guidelines
+│   └── images/                 # Architecture & User Flow diagrams
+└── scripts/                    # Launch & Deployment Automation
+    ├── run_local.ps1 / .sh     # Automated process cleanup & local launcher
+    ├── test_zia_agents.py      # Python integration test suite
+    └── deploy_catalyst.ps1     # Zoho Catalyst cloud deploy script
 ```
 
 ---

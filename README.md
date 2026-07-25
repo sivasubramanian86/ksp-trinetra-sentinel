@@ -4,11 +4,24 @@
 
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 [![Platform](https://img.shields.io/badge/Platform-Zoho%20Catalyst-blue.svg)]()
+[![AI Engine](https://img.shields.io/badge/AI-Zoho%20Zia%20LLM%20%2B%20MCP-purple.svg)]()
 [![UI Framework](https://img.shields.io/badge/UI-Next.js%2014-black.svg)]()
 [![Compliance](https://img.shields.io/badge/Compliance-DPDP%20Act%202023-emerald.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-orange.svg)]()
 
-**KSP Trinetra Sentinel** is an enterprise-grade, multi-agent AI command center and predictive intelligence brain designed for the Karnataka State Police (KSP). It combines spatio-temporal risk forecasting, multi-hop syndicate graph tracing, autonomous forensic report dissection, real-time 5G IoT mesh surveillance, and bilingual (Kannada/English) Zia LLM GraphRAG brief generation under strict DPDP Act 2023 privacy guardrails.
+**KSP Trinetra Sentinel** is an enterprise-grade, multi-agent AI command center and predictive intelligence brain built for the Karnataka State Police (KSP). Powered 100% by the **Zoho Catalyst Platform** and **Zoho Zia LLM Infrastructure**, it combines spatio-temporal risk forecasting, multi-hop syndicate graph tracing, autonomous forensic report dissection, real-time 5G IoT mesh surveillance, and bilingual (Kannada/English) Zia LLM GraphRAG brief generation under strict DPDP Act 2023 privacy guardrails.
+
+---
+
+## 🏛️ System Architecture Diagram
+
+![System Architecture Diagram](docs/images/architecture_diagram.png)
+
+---
+
+## 🔄 User Flow Diagram
+
+![User Flow Diagram](docs/images/user_flow_diagram.png)
 
 ---
 
@@ -22,36 +35,6 @@
 - **🚁 IoT Tactical Surveillance & Traffic Control**: Live telemetry feeds for SkyWatch FLIR Drones, CCTV ANPR Nodes, ShotSpotter Acoustic Sensors, and Emergency Green Corridor Traffic Signal Automation.
 - **🛡️ Public Vigilance & Self-Defence Portal**: Emergency Police SOS Helpline (112 / 1930), self-defence & cyber fraud guides, privacy FAQs, and system settings.
 - **🌓 Dual Theme Support (Light ☀️ & Dark 🌙)**: High-contrast, glassmorphic frosted UI with instant theme switching.
-
----
-
-## 🏗️ System Architecture
-
-```text
-                               +----------------------------------+
-                               |   Next.js 14 Command Center UI   |
-                               | (Dual Theme, Leaflet, React Flow)|
-                               +----------------+-----------------+
-                                                |
-                                                v REST / JSON
-                               +----------------+-----------------+
-                               |  Zoho Catalyst API Gateway      |
-                               | (Express.js, Catalyst Vault,    |
-                               |  Ethics Guard & MCP Server)      |
-                               +---+------------+-------------+---+
-                                   |            |             |
-                                   v            v             v
-                             +----------+  +----------+  +----------+
-                             | Hotspot  |  | Graph    |  | Forensic |
-                             | ML Model |  | Engine   |  | Multi-   |
-                             | (ST-GNN) |  | (NetX)   |  | Agent    |
-                             +----------+  +----------+  +----------+
-                                                |
-                                                v SQL / Spatial
-                               +----------------+-----------------+
-                               | PostgreSQL 16 + PostGIS Schema  |
-                               +----------------------------------+
-```
 
 ---
 
