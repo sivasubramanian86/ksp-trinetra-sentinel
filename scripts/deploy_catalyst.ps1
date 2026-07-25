@@ -1,7 +1,7 @@
 # Zoho Catalyst Deployment Script (Windows PowerShell)
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "[+] Building and Deploying KSP Trinetra Sentinel to Catalyst" -ForegroundColor Cyan
+Write-Host "[+] Building and Deploying KSP Trinetra Sentinel to Catalyst Project ID: 45111000000013054" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 # Step 1: Build Next.js static client export
@@ -12,17 +12,18 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-# Step 2: Verify client/out bundle
+# Step 2: Ensure client-package.json exists in client/out
 if (Test-Path "client/out") {
-    Write-Host "[OK] Verified static export bundle in client/out" -ForegroundColor Green
+    Copy-Item "client/client-package.json" "client/out/client-package.json" -Force
+    Write-Host "[OK] Verified static export bundle & client-package.json in client/out" -ForegroundColor Green
 } else {
     Write-Host "[ERROR] Directory client/out missing. Aborting." -ForegroundColor Red
     exit 1
 }
 
 # Step 3: Execute Catalyst Deploy
-Write-Host "[3/3] Deploying functions and client to Zoho Catalyst..." -ForegroundColor Yellow
-catalyst deploy
+Write-Host "[3/3] Deploying Web Client to Zoho Catalyst..." -ForegroundColor Yellow
+catalyst deploy --only client --project 45111000000013054
 
 Write-Host ""
-Write-Host "[OK] Production Deployment Complete!" -ForegroundColor Green
+Write-Host "[OK] Production Deployment to Zoho Catalyst Complete!" -ForegroundColor Green

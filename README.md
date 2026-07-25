@@ -13,6 +13,15 @@
 
 ---
 
+## 🌐 Live Catalyst Cloud URL
+
+- **Production Access URL**:  
+  **[https://ksp-trinetra-sentinel-60079971646.development.catalystserverless.in/app/index.html](https://ksp-trinetra-sentinel-60079971646.development.catalystserverless.in/app/index.html)**
+- **Catalyst Project Name**: `KSP-Trinetra-Sentinel`
+- **Catalyst Project ID**: `45111000000013054`
+
+---
+
 ## 🏛️ System Architecture Diagram
 
 ![System Architecture Diagram](docs/images/architecture_diagram.png)
@@ -50,7 +59,7 @@ Run the automated one-click launcher (automatically cleans up stale processes on
 
 - **Windows PowerShell**:
   ```powershell
-  .\scripts\run_local.ps1
+  .\scripts\deploy_catalyst.ps1
   ```
 - **Linux/macOS Bash**:
   ```bash
