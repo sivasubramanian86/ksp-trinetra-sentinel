@@ -56,5 +56,7 @@ data/*.wav
 data/*.mp3
 docs/KSP_TRINETRA_SENTINEL_DEMO_VIDEO_SCRIPT.md
 scripts/generate_demo_voiceover.py
+docs/YOUTUBE_DESCRIPTION_AND_PROTOTYPE_BRIEF.md
+
 
 
