@@ -31,7 +31,12 @@
     └─────────────────┘    └────────────────────────────────────────────┘
 ```
 
+## Use-Case Diagram — Actor Roles & Command Center Interactions
+
+![Use-Case & Actor Flow Diagram](images/use_case_actor_flow_diagram.png)
+
 ## Service Topology
+
 
 | Service | Runtime | Hosting | Purpose |
 |---|---|---|---|
