@@ -41,8 +41,14 @@
       {
         "name": "CaseMaster",
         "columns": [
+          { "name": "CaseMasterID", "type": "number" },
           { "name": "CrimeNo", "type": "var_char", "max_length": 50 },
           { "name": "CaseNo", "type": "var_char", "max_length": 50 },
+          { "name": "CrimeRegisteredDate", "type": "var_char", "max_length": 50 },
+          { "name": "PolicePersonID", "type": "number" },
+          { "name": "PoliceStationID", "type": "number" },
+          { "name": "CrimeMajorHeadID", "type": "number" },
+          { "name": "CrimeMinorHeadID", "type": "number" },
           { "name": "BriefFacts", "type": "large_text" },
           { "name": "latitude", "type": "double" },
           { "name": "longitude", "type": "double" }
@@ -51,6 +57,8 @@
       {
         "name": "Accused",
         "columns": [
+          { "name": "AccusedID", "type": "number" },
+          { "name": "CaseMasterID", "type": "number" },
           { "name": "AccusedName", "type": "var_char", "max_length": 150 },
           { "name": "PersonID", "type": "var_char", "max_length": 50 }
         ]
@@ -58,9 +66,12 @@
       {
         "name": "Victim",
         "columns": [
+          { "name": "VictimID", "type": "number" },
+          { "name": "CaseMasterID", "type": "number" },
           { "name": "VictimName", "type": "var_char", "max_length": 150 }
         ]
       },
+
       {
         "name": "AuditLog",
         "columns": [
@@ -92,6 +103,65 @@
         ]
       },
       {
+        "name": "Person",
+        "columns": [
+          { "name": "PersonID", "type": "var_char", "max_length": 50 },
+          { "name": "Name", "type": "var_char", "max_length": 150 },
+          { "name": "Gender", "type": "var_char", "max_length": 20 },
+          { "name": "Age", "type": "number" },
+          { "name": "MobileNo", "type": "var_char", "max_length": 20 },
+          { "name": "Address", "type": "large_text" }
+        ]
+      },
+      {
+        "name": "ActSectionAssociation",
+        "columns": [
+          { "name": "AssociationID", "type": "number" },
+          { "name": "CaseMasterID", "type": "number" },
+          { "name": "ActCode", "type": "var_char", "max_length": 20 },
+          { "name": "SectionCode", "type": "var_char", "max_length": 50 }
+        ]
+      },
+      {
+        "name": "ChargesheetDetails",
+        "columns": [
+          { "name": "ChargesheetID", "type": "number" },
+          { "name": "CaseMasterID", "type": "number" },
+          { "name": "ChargesheetNo", "type": "var_char", "max_length": 50 },
+          { "name": "FilingDate", "type": "var_char", "max_length": 50 },
+          { "name": "DelayDays", "type": "number" },
+          { "name": "IOEmployeeID", "type": "number" }
+        ]
+      },
+      {
+        "name": "PoliceStation",
+        "columns": [
+          { "name": "PoliceStationID", "type": "number" },
+          { "name": "StationName", "type": "var_char", "max_length": 150 },
+          { "name": "DistrictID", "type": "number" },
+          { "name": "ZoneName", "type": "var_char", "max_length": 100 }
+        ]
+      },
+      {
+        "name": "CrimeHead",
+        "columns": [
+          { "name": "CrimeMajorHeadID", "type": "number" },
+          { "name": "CrimeMinorHeadID", "type": "number" },
+          { "name": "MajorHeadName", "type": "var_char", "max_length": 150 },
+          { "name": "MinorHeadName", "type": "var_char", "max_length": 150 }
+        ]
+      },
+      {
+        "name": "Employee",
+        "columns": [
+          { "name": "EmployeeID", "type": "number" },
+          { "name": "EmployeeName", "type": "var_char", "max_length": 150 },
+          { "name": "RankName", "type": "var_char", "max_length": 50 },
+          { "name": "ClearanceLevel", "type": "number" },
+          { "name": "PoliceStationID", "type": "number" }
+        ]
+      },
+      {
         "name": "DashboardPreset",
         "columns": [
           { "name": "EmployeeID", "type": "number" },
@@ -103,6 +173,7 @@
       }
     ]
   },
+
   "security_rules": {
     "file": "security_rules.json"
   }

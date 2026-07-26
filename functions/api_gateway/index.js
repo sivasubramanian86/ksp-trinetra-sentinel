@@ -179,11 +179,94 @@ app.post('/api/chat', verifyRole(['COMMISSIONER', 'ANALYST', 'PATROL_OFFICER']),
   }
 });
 
+// 5. Automated Catalyst Datastore Seeder (Native Catalyst SDK)
+app.all('/api/v1/admin/seed-datastore', async (req, res) => {
+  try {
+    let catalystApp;
+    try {
+      catalystApp = catalyst.initialize(req);
+    } catch (e) {
+      catalystApp = catalyst.initialize();
+    }
+
+    const fs = require('fs');
+    const path = require('path');
+    const datasetPath = path.resolve(__dirname, '../../db/seeds/ksp_fir_dataset.json');
+
+    if (!fs.existsSync(datasetPath)) {
+      return res.status(404).json({ error: 'Seed dataset file not found' });
+    }
+
+    const data = JSON.parse(fs.readFileSync(datasetPath, 'utf8'));
+    const datastore = catalystApp.datastore();
+    const results = {};
+
+    // 1. CaseMaster
+    if (data.cases) {
+      const caseRows = data.cases.map(c => ({
+        CaseMasterID: c.CaseMasterID,
+        CrimeNo: c.CrimeNo,
+        CaseNo: c.CaseNo,
+        CrimeRegisteredDate: c.CrimeRegisteredDate || new Date().toISOString(),
+        PolicePersonID: c.PolicePersonID || 501,
+        PoliceStationID: c.PoliceStationID || 1047,
+        CrimeMajorHeadID: c.CrimeMajorHeadID || 1,
+        CrimeMinorHeadID: c.CrimeMinorHeadID || 101,
+        latitude: parseFloat(c.latitude || 12.9716),
+        longitude: parseFloat(c.longitude || 77.5946),
+        BriefFacts: c.BriefFacts || 'FIR Incident record',
+      }));
+      try {
+        const inserted = await datastore.table('CaseMaster').insertRows(caseRows.slice(0, 50));
+        results.CaseMaster = inserted.length;
+      } catch (e) {
+        results.CaseMaster_error = e.message;
+      }
+    }
+
+    // 2. Accused
+    if (data.accused) {
+      const accusedRows = data.accused.map((a, idx) => ({
+        AccusedID: idx + 1,
+        CaseMasterID: a.CaseMasterID || (idx % 50) + 1,
+        AccusedName: a.AccusedName || 'Unknown Accused',
+        PersonID: String(a.PersonID || `P-${100 + idx}`),
+      }));
+      try {
+        const inserted = await datastore.table('Accused').insertRows(accusedRows.slice(0, 50));
+        results.Accused = inserted.length;
+      } catch (e) {
+        results.Accused_error = e.message;
+      }
+    }
+
+    // 3. Victim
+    if (data.victims) {
+      const victimRows = data.victims.map((v, idx) => ({
+        VictimID: idx + 1,
+        CaseMasterID: v.CaseMasterID || (idx % 50) + 1,
+        VictimName: v.VictimName || 'Unknown Victim',
+      }));
+      try {
+        const inserted = await datastore.table('Victim').insertRows(victimRows.slice(0, 50));
+        results.Victim = inserted.length;
+      } catch (e) {
+        results.Victim_error = e.message;
+      }
+    }
+
+    res.json({ success: true, message: 'Catalyst Datastore seeded successfully via native SDK', results });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
     console.log(`[+] API Gateway running on port ${PORT}`);
   });
 }
+
 
 module.exports = app;
