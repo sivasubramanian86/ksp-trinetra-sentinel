@@ -37,7 +37,7 @@ export const SampleEvidenceCanvas: React.FC<SampleEvidenceCanvasProps> = ({ lang
       titleKn: "ಸಿಎಸಿಟಿವಿ ವಾಹನ ನಂಬರ್ ಪ್ಲೇಟ್ ಒಸಿಆರ್",
       category: "Traffic & Highway Surveillance",
       ziaService: "Zia OCR + Image Object Detection",
-      imageSrc: "./sample_images/ocr_test_plate.png",
+      imageSrc: "sample_images/ocr_test_plate.png",
       stratusBucketUrl: "https://ksp-forensic-evidence-development.zohostratus.in/ocr_test_plate.png",
       extractedMeta: {
         ocrText: "KA-01-EQ-1234",
@@ -55,7 +55,7 @@ export const SampleEvidenceCanvas: React.FC<SampleEvidenceCanvasProps> = ({ lang
       titleKn: "ಎಫ್‌ಐಆರ್ ಕಾನೂನು ದಾಖಲೆ ಒಸಿಆರ್",
       category: "Legal & Police Station Record",
       ziaService: "Zia Optical Character Recognition (OCR)",
-      imageSrc: "./sample_images/document_test.png",
+      imageSrc: "sample_images/document_test.png",
       stratusBucketUrl: "https://ksp-forensic-evidence-development.zohostratus.in/document_test.png",
       extractedMeta: {
         ocrText: "KARNATAKA STATE POLICE - INDIRANAGAR PS - FIR NO 1044/2026 - OFFENCE UNDER BNS SECTION 303",
@@ -73,7 +73,7 @@ export const SampleEvidenceCanvas: React.FC<SampleEvidenceCanvasProps> = ({ lang
       titleKn: "ವಶಪಡಿಸಿಕೊಂಡ ವಸ್ತು ಬಾರ್‌ಕೋಡ್ ಸ್ಕ್ಯಾನರ್",
       category: "Forensic Chain-of-Custody",
       ziaService: "Zia Barcode Scanner (CODE-128)",
-      imageSrc: "./sample_images/barcode_test.png",
+      imageSrc: "sample_images/barcode_test.png",
       stratusBucketUrl: "https://ksp-forensic-evidence-development.zohostratus.in/barcode_test.png",
       extractedMeta: {
         barcodeValue: "8901234567890 (Evidence Locker #4)",
@@ -91,7 +91,7 @@ export const SampleEvidenceCanvas: React.FC<SampleEvidenceCanvasProps> = ({ lang
       titleKn: "ಅಪರಾಧ ಸ್ಥಳ ಬ್ಯಾಲಿಸ್ಟಿಕ್ಸ್ ಫೋರೆನ್ಸಿಕ್",
       category: "Ballistic Shell Casing & Crime Scene Marker",
       ziaService: "Zia Multimodal & Striation Matcher",
-      imageSrc: "./sample_images/crime_scene_test.png",
+      imageSrc: "sample_images/crime_scene_test.png",
       stratusBucketUrl: "https://ksp-forensic-evidence-development.zohostratus.in/crime_scene_test.png",
       extractedMeta: {
         ocrText: "EVIDENCE MARKER #7 - 9mm Brass Casing - Striation Match 94.2%",
@@ -109,7 +109,7 @@ export const SampleEvidenceCanvas: React.FC<SampleEvidenceCanvasProps> = ({ lang
       titleKn: "ಟ್ರಾಫಿಕ್ ಸಿಗ್ನಲ್ ಉಲ್ಲಂಘನೆ ಮತ್ತು ವೇಗ ಉಲ್ಲಂಘನೆ",
       category: "Reckless Driving & ANPR Bounding Box",
       ziaService: "Zia Object Detector & Speed Estimator",
-      imageSrc: "./sample_images/traffic_jump_test.png",
+      imageSrc: "sample_images/traffic_jump_test.png",
       stratusBucketUrl: "https://ksp-forensic-evidence-development.zohostratus.in/traffic_jump_test.png",
       extractedMeta: {
         ocrText: "Vehicle KA-05-MB-8899 | Speed: 68 km/h | Red Light Jump Violation",
@@ -127,7 +127,8 @@ export const SampleEvidenceCanvas: React.FC<SampleEvidenceCanvasProps> = ({ lang
       titleKn: "ಸಿವಿಲ್ ಅಪರಾಧ ಮತ್ತು ನಕಲಿ ಭೂ ದಾಖಲೆ ಜಿಯಾ ಒಸಿಆರ್",
       category: "Property Encroachment & Signature Audit",
       ziaService: "Zia Document Audit & Forgery Analyzer",
-      imageSrc: "./sample_images/civil_crime_test.png",
+      imageSrc: "sample_images/civil_crime_test.png",
+
       stratusBucketUrl: "https://ksp-forensic-evidence-development.zohostratus.in/civil_crime_test.png",
       extractedMeta: {
         ocrText: "SURVEY NO 42/1 INDIRANAGAR - Forged Stamp Signature Match 42%",

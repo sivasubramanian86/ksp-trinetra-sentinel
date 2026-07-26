@@ -70,8 +70,17 @@ export const LeafletHeatMap: React.FC<LeafletHeatMapProps> = ({
       });
 
 
+      // Fix Leaflet default icon URL 404s
+      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+        iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+        shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+      });
+
       leafletMapRef.current = map;
       layersGroupRef.current = L.layerGroup().addTo(map);
+
 
       // Add Zoom Control at top-left
       L.control.zoom({ position: "topleft" }).addTo(map);
