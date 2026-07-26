@@ -49,3 +49,12 @@ Thumbs.db
 docs/KSP_DATATHON_2026_PRESENTATION_DECK.md
 scripts/reference_deck_summary.txt
 
+# Audio voiceover files & demo script files
+*.wav
+*.mp3
+data/*.wav
+data/*.mp3
+docs/KSP_TRINETRA_SENTINEL_DEMO_VIDEO_SCRIPT.md
+scripts/generate_demo_voiceover.py
+
+
