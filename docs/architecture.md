@@ -38,6 +38,7 @@
 | `api_gateway/` | Node.js 18 (Express) | Catalyst Advanced I/O | REST API + MCP Orchestrator + Copilot |
 | `client/` | Next.js 14 (Static Export) | Catalyst Static Hosting | Officer Command Center UI |
 | `backend/python-services/` | Python 3.11 (FastAPI) | Catalyst Advanced I/O | ML Analytics + Forensics Triage |
+| **Zoho QuickML GLM-4.7-Flash** | **GLM-4.7 MoE (30B IT)** | **Zoho QuickML (India DC)** | **Zia Generative Copilot & Chain-of-Thought Reasoning** |
 | PostgreSQL + PostGIS | Managed DB | External (supabase/self-hosted) | FIR ER Schema source of truth |
 | Catalyst Datastore | Zoho-managed NoSQL | Catalyst Datastore | AuditLog + OperationPlan (dual-write) |
 | Catalyst Cache | In-memory (5 min TTL) | Catalyst Cache | Hotspot forecasts, DG snapshot |
@@ -66,14 +67,15 @@ Officer sends NL query
 [PII Masker] ─── Apply mask tier (FULL_REDACT | PARTIAL | STANDARD | UNMASKED)
         │
         ▼
+[Zoho QuickML GLM-4.7-Flash] ─── MoE LLM NLG Synthesis + Chain-of-Thought (enable_thinking: true)
+        │
+        ▼
 [Audit Logger] ─── Non-blocking write to audit_log (Postgres + Catalyst Datastore)
         │
         ▼
-[Legal Context] ─── If SECTION_CASES: augment with KB entry (ASSISTIVE_ONLY label)
-        │
-        ▼
-Structured JSON response to client
+Structured JSON response with ZIA_GLM badge, latency, & thinking trace to client
 ```
+
 
 ## Data Layer — FIR ER Schema (Summary)
 

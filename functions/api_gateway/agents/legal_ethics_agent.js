@@ -18,15 +18,31 @@ const fs = require('fs');
 // ─── Load Legal Knowledge Base ────────────────────────────────────────────────
 let LEGAL_KB = { mappings: [] };
 
-try {
-  const kbPath = path.resolve(__dirname, '../../db/seeds/legal_knowledge_base.json');
-  const raw = fs.readFileSync(kbPath, 'utf8');
-  LEGAL_KB = JSON.parse(raw);
-  console.log(`[LegalAgent] Loaded ${LEGAL_KB.mappings.length} legal knowledge base entries.`);
-} catch (e) {
-  // In Catalyst Cloud, the file is not co-located — fall back to inline BNS_SECTIONS
-  console.warn('[LegalAgent] KB file not found, using inline BNS sections fallback:', e.message);
+const kbCandidatePaths = [
+  path.resolve(__dirname, '../../../db/seeds/legal_knowledge_base.json'),
+  path.resolve(process.cwd(), 'db/seeds/legal_knowledge_base.json'),
+  path.resolve(__dirname, '../../db/seeds/legal_knowledge_base.json'),
+];
+
+let loadedKbPath = null;
+for (const cand of kbCandidatePaths) {
+  if (fs.existsSync(cand)) {
+    try {
+      const raw = fs.readFileSync(cand, 'utf8');
+      LEGAL_KB = JSON.parse(raw);
+      loadedKbPath = cand;
+      console.log(`[LegalAgent] Loaded ${LEGAL_KB.mappings.length} legal knowledge base entries from: ${cand}`);
+      break;
+    } catch (e) {
+      console.warn(`[LegalAgent] Failed parsing KB at ${cand}:`, e.message);
+    }
+  }
 }
+
+if (!loadedKbPath) {
+  console.warn('[LegalAgent] KB file not found in candidate paths, using inline BNS sections fallback.');
+}
+
 
 // ─── Legacy Inline BNS Sections (preserved for backward compatibility) ────────
 const BNS_SECTIONS = [

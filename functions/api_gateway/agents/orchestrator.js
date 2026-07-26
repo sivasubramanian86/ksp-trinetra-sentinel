@@ -17,38 +17,64 @@ class TrinetraOrchestrator {
 
   /**
    * Process incoming NammaRaksha Copilot requests
+   * 
+   * Execution model: PARALLEL fan-out via Promise.all()
+   * Independent sub-agents (hotspot, graph, multimodal, legal) are dispatched
+   * simultaneously and joined when all complete.
+   * Total latency = max(agent latencies), not sum.
    */
   async processRequest(payload, userContext) {
     const { query, language = 'en', media = null, beat_code = null, seed_identifier = null } = payload;
 
-    // Step 1: Multilingual NLU & Translation check
+    // Step 1: Multilingual NLU & Translation check (must complete before dispatch)
     const normalizedInput = await multilingualAgent.parseInput(query, language);
 
-    // Step 2: Ethics & DPDP Guardrail Audit
+    // Step 2: Ethics & DPDP Guardrail Audit (must complete before any data access)
     const ethicsAudit = await legalEthicsAgent.auditQuery(normalizedInput.text, userContext);
     if (!ethicsAudit.allowed) {
       return multilingualAgent.formatResponse(ethicsAudit.reasonNotice, language);
     }
 
+    const q = normalizedInput.text.toLowerCase();
+
+    // Step 3: PARALLEL fan-out — dispatch all eligible sub-agents simultaneously
+    // Each entry is a [key, Promise] pair; null entries are filtered before resolution.
+    const parallelTasks = await Promise.all([
+      // Multimodal agent — only if media payload present
+      media
+        ? multimodalAgent.processMedia(media).then(r => ['multimodal', r])
+        : Promise.resolve(null),
+
+      // Hotspot agent — if beat_code provided or query mentions risk/hotspot
+      (beat_code || q.includes('risk') || q.includes('hotspot'))
+        ? hotspotAgent.getForecast({ beat_code: beat_code || 'BNG-INDIRANAGAR-B1', target_time: payload.target_time })
+            .then(r => ['hotspot', r])
+        : Promise.resolve(null),
+
+      // Graph/syndicate agent — if seed_identifier provided or query mentions syndicate/trace
+      (seed_identifier || q.includes('syndicate') || q.includes('trace'))
+        ? graphAgent.traceSyndicate({ seed_identifier: seed_identifier || 'KA-01-EQ-1234' })
+            .then(r => ['graph', r])
+        : Promise.resolve(null),
+
+      // Legal & SOP retrieval — always runs in parallel (stateless KB lookup)
+      legalEthicsAgent.retrieveBNSSections(normalizedInput.text)
+        .then(r => ['legal', r]),
+    ]);
+
+    // Collect only resolved (non-null) results into subAgentResults
     const subAgentResults = {};
-
-    // Step 3: Dispatch to specialized sub-agents based on context/intent
-    if (media) {
-      subAgentResults.multimodal = await multimodalAgent.processMedia(media);
+    for (const result of parallelTasks) {
+      if (result) {
+        const [key, value] = result;
+        subAgentResults[key] = value;
+      }
     }
 
-    if (beat_code || normalizedInput.text.toLowerCase().includes('risk') || normalizedInput.text.toLowerCase().includes('hotspot')) {
-      subAgentResults.hotspot = await hotspotAgent.getForecast({ beat_code: beat_code || 'BNG-INDIRANAGAR-B1', target_time: payload.target_time });
-    }
+    const legalContext = subAgentResults.legal || [];
+    delete subAgentResults.legal; // legal goes into legalCitations, not subAgentResults
 
-    if (seed_identifier || normalizedInput.text.toLowerCase().includes('syndicate') || normalizedInput.text.toLowerCase().includes('trace')) {
-      subAgentResults.graph = await graphAgent.traceSyndicate({ seed_identifier: seed_identifier || 'KA-01-EQ-1234' });
-    }
-
-    // Step 4: Legal & SOP Retrieval (BNS 2023)
-    const legalContext = await legalEthicsAgent.retrieveBNSSections(normalizedInput.text);
-
-    // Step 5: Synthesize Tactical Briefing
+    // Step 4: Synthesize Tactical Briefing
     const rawBriefing = {
       title: language === 'kn' ? 'ನಮ್ಮರಕ್ಷಾ ಕಾಪ್-ಪೈಲಟ್ ವಿವರಣೆ' : 'NammaRaksha Tactical Police Briefing',
       queryProcessed: normalizedInput.text,
@@ -57,6 +83,7 @@ class TrinetraOrchestrator {
       legalCitations: legalContext,
       timestamp: new Date().toISOString(),
       dpdpCompliant: true,
+      parallelExecution: true, // flag for observability
     };
 
     return multilingualAgent.formatResponse(rawBriefing, language);

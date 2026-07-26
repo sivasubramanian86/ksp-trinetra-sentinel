@@ -15,13 +15,27 @@ interface Message {
   mediaPreview?: string;
   bnsCitations?: string[];
   dpdpAudit?: boolean;
+  source?: "ZIA_GLM" | "STRUCTURED_FALLBACK" | "CACHED";
+  thinking?: string | null;  // GLM chain-of-thought reasoning trace
+  latencyMs?: number;
+  modelMeta?: { model: string; modelId?: string; provider: string; temperature?: number; architecture?: string; tokensUsed?: number | null };
 }
+
+// Zia thinking phases — shown sequentially while awaiting response
+const ZIA_THINKING_PHASES = [
+  { label: "Ethics & DPDP Guard",       icon: "🛡️",  durationMs: 400 },
+  { label: "Intent Classification",     icon: "🧠",  durationMs: 400 },
+  { label: "Querying FIR Database",     icon: "🗄️",  durationMs: 600 },
+  { label: "Zia LLM Synthesis",         icon: "⚡",  durationMs: 800 },
+  { label: "Applying RBAC Scoping",     icon: "🔒",  durationMs: 300 },
+];
 
 export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language }) => {
   const [inputQuery, setInputQuery] = useState("");
   const [uploadedMedia, setUploadedMedia] = useState<{ type: "IMAGE" | "AUDIO"; name: string } | null>(null);
   const [isSending, setIsSending] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [thinkingPhaseIdx, setThinkingPhaseIdx] = useState(-1); // -1 = not thinking
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -69,6 +83,15 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
     setMessages((prev) => [...prev, userMsg]);
     setInputQuery("");
     setIsSending(true);
+    setThinkingPhaseIdx(0);
+
+    // Cycle through thinking phase labels while request is in flight
+    const phaseTimer = setInterval(() => {
+      setThinkingPhaseIdx((prev) => {
+        if (prev < ZIA_THINKING_PHASES.length - 1) return prev + 1;
+        return prev; // stay on last phase
+      });
+    }, 550);
 
     try {
       const response = await fetch(getApiEndpoint(), {
@@ -85,12 +108,17 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
 
       if (response.ok) {
         const data = await response.json();
+        const briefing = data.briefing || {};
         const copilotReply: Message = {
           id: `c-${Date.now()}`,
           sender: "copilot",
-          text: data.briefing || data.title || (language === "kn" ? "ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ." : "Briefing Generated."),
+          text: briefing.summary || briefing.title || data.title || (language === "kn" ? "ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ." : "Briefing Generated."),
           bnsCitations: data.legalCitations ? data.legalCitations.map((c: any) => c.section || c) : ["BNS Section 304"],
           dpdpAudit: true,
+          source: briefing.source || "STRUCTURED_FALLBACK",
+          thinking: briefing.thinking || null,
+          latencyMs: briefing.latencyMs,
+          modelMeta: briefing.modelMeta,
         };
         setMessages((prev) => [...prev, copilotReply]);
       } else {
@@ -106,9 +134,12 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             : `Tactical Briefing Generated for: "${queryToSend}". Indiranagar Beat #1 requires 2 Hoysala units. Legal SOP under BNS Section 304 applies.`,
         bnsCitations: ["BNS Section 304 (Snatching)", "KSP SOP Guideline #14"],
         dpdpAudit: true,
+        source: "STRUCTURED_FALLBACK",
       };
       setMessages((prev) => [...prev, copilotReply]);
     } finally {
+      clearInterval(phaseTimer);
+      setThinkingPhaseIdx(-1);
       setIsSending(false);
       setUploadedMedia(null);
     }
@@ -213,28 +244,35 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
     const currentQuery = inputQuery;
     setInputQuery("");
     setIsSending(true);
+    setThinkingPhaseIdx(0);
+
+    const phaseTimer = setInterval(() => {
+      setThinkingPhaseIdx((prev) => {
+        if (prev < ZIA_THINKING_PHASES.length - 1) return prev + 1;
+        return prev;
+      });
+    }, 550);
 
     try {
       const response = await fetch(getApiEndpoint(), {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-user-role": "COMMISSIONER",
-        },
-        body: JSON.stringify({
-          query: currentQuery || "Analyze uploaded evidence",
-          language: language,
-        }),
+        headers: { "Content-Type": "application/json", "x-user-role": "COMMISSIONER" },
+        body: JSON.stringify({ query: currentQuery || "Analyze uploaded evidence", language }),
       });
 
       if (response.ok) {
         const data = await response.json();
+        const briefing = data.briefing || {};
         const copilotReply: Message = {
           id: `c-${Date.now()}`,
           sender: "copilot",
-          text: data.briefing || data.title || (language === "kn" ? "ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ." : "Briefing Generated."),
+          text: briefing.summary || briefing.title || (language === "kn" ? "ವಿಶ್ಲೇಷಣೆ ಪೂರ್ಣಗೊಂಡಿದೆ." : "Briefing Generated."),
           bnsCitations: data.legalCitations ? data.legalCitations.map((c: any) => c.section || c) : ["BNS Section 304"],
           dpdpAudit: true,
+          source: briefing.source || "STRUCTURED_FALLBACK",
+          thinking: briefing.thinking || null,
+          latencyMs: briefing.latencyMs,
+          modelMeta: briefing.modelMeta,
         };
         setMessages((prev) => [...prev, copilotReply]);
       } else {
@@ -251,9 +289,12 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             : `Tactical Briefing Generated for: "${currentQuery || "Multimodal Evidence"}". Indiranagar Beat #1 requires 2 Hoysala units. Legal SOP under BNS Section 304 applies.`,
         bnsCitations: ["BNS Section 304 (Snatching)", "KSP SOP Guideline #14"],
         dpdpAudit: true,
+        source: "STRUCTURED_FALLBACK",
       };
       setMessages((prev) => [...prev, copilotReply]);
     } finally {
+      clearInterval(phaseTimer);
+      setThinkingPhaseIdx(-1);
       setIsSending(false);
       setUploadedMedia(null);
     }
@@ -271,7 +312,7 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             <h2 className="text-base font-extrabold tracking-wider text-slate-900 dark:text-white">
               {language === "kn" ? "ನಮ್ಮರಕ್ಷಾ ಕಾಪ್-ಪೈಲಟ್ (NAMMARAKSHA)" : "NAMMARAKSHA LAW COPILOT"}
             </h2>
-            <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">Zia GraphRAG Orchestrator Engine</p>
+            <p className="text-xs font-semibold text-slate-600 dark:text-slate-400">Zoho QuickML GLM-4.7-Flash Engine</p>
           </div>
         </div>
         <div className="flex items-center space-x-2">
@@ -283,8 +324,8 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             <Download className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
             <span>PDF Export</span>
           </button>
-          <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-mono font-bold shadow-sm">
-            ZIA RAG
+          <span className="text-xs px-3 py-1 rounded-full bg-violet-500/15 text-violet-700 dark:text-violet-300 border border-violet-500/30 font-mono font-bold shadow-sm">
+            GLM-4.7 MoE
           </span>
         </div>
       </div>
@@ -313,7 +354,49 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
                 </div>
               )}
 
+              {/* Source Differentiator Badge — ZIA_GLM vs STRUCTURED_FALLBACK */}
+              {msg.sender === "copilot" && msg.source && (
+                <div className="mb-3 flex items-center gap-2 flex-wrap">
+                  {msg.source === "ZIA_GLM" ? (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-violet-500/15 border border-violet-500/40 text-violet-300 text-xs font-bold tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse inline-block" />
+                      ⚡ ZIA GLM-4.7-Flash (MoE) · {msg.modelMeta?.modelId || "crm-di-glm47b_30b_it"}
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-500/15 border border-slate-500/30 text-slate-400 text-xs font-bold tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 inline-block" />
+                      🗄️ STRUCTURED ENGINE
+                    </span>
+                  )}
+                  {msg.latencyMs && (
+                    <span className="text-xs text-slate-500 font-mono">{msg.latencyMs}ms</span>
+                  )}
+                </div>
+              )}
+
+              {/* Chain of Thought / GLM Thinking Trace if available */}
+              {msg.sender === "copilot" && msg.thinking && (
+                <details className="mb-3 p-3 rounded-xl bg-slate-900/60 border border-violet-500/30 text-xs font-mono text-violet-200">
+                  <summary className="cursor-pointer font-bold text-violet-300 flex items-center gap-1">
+                    🧠 GLM Chain-of-Thought Reasoning
+                  </summary>
+                  <pre className="mt-2 whitespace-pre-wrap text-[11px] text-slate-300 leading-snug">
+                    {msg.thinking}
+                  </pre>
+                </details>
+              )}
+
               <p className="font-semibold text-sm md:text-base">{msg.text}</p>
+
+              {/* Model Metadata — shown for ZIA_GLM only */}
+              {msg.sender === "copilot" && msg.source === "ZIA_GLM" && msg.modelMeta && (
+                <div className="mt-3 pt-2 border-t border-violet-500/20 text-xs text-slate-500 dark:text-slate-500 font-mono space-y-0.5">
+                  <div>Provider: {msg.modelMeta.provider} ({msg.modelMeta.architecture || "MoE"})</div>
+                  {msg.modelMeta.temperature !== undefined && (
+                    <div>Temp: {msg.modelMeta.temperature} · Tokens: {msg.modelMeta.tokensUsed || 'auto'}</div>
+                  )}
+                </div>
+              )}
 
               {/* Legal BNS Citations */}
               {msg.bnsCitations && (
@@ -339,6 +422,40 @@ export const NammaRakshaCopilot: React.FC<NammaRakshaCopilotProps> = ({ language
             )}
           </div>
         ))}
+
+        {/* Multi-Phase Thinking Spinner */}
+        {isSending && thinkingPhaseIdx >= 0 && (
+          <div className="flex flex-col items-start">
+            <div className="max-w-[88%] p-5 rounded-3xl rounded-bl-none bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-5 h-5 border-2 border-violet-400 border-t-transparent rounded-full animate-spin flex-shrink-0" />
+                <span className="text-xs font-bold text-violet-400 tracking-widest uppercase">Zia AI Processing</span>
+              </div>
+              <div className="space-y-2">
+                {ZIA_THINKING_PHASES.map((phase, idx) => (
+                  <div key={idx} className={`flex items-center gap-2 text-xs transition-all duration-300 ${
+                    idx < thinkingPhaseIdx
+                      ? "text-emerald-400 opacity-60"
+                      : idx === thinkingPhaseIdx
+                      ? "text-violet-300 font-bold"
+                      : "text-slate-600 opacity-30"
+                  }`}>
+                    <span>{phase.icon}</span>
+                    <span>{phase.label}</span>
+                    {idx < thinkingPhaseIdx && <span className="ml-auto">✓</span>}
+                    {idx === thinkingPhaseIdx && (
+                      <span className="ml-auto flex gap-0.5">
+                        <span className="w-1 h-1 bg-violet-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-1 h-1 bg-violet-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-1 h-1 bg-violet-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Multimodal Attachments Bar */}
