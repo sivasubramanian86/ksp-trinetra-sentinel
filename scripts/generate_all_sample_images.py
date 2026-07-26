@@ -5,10 +5,11 @@ from PIL import Image, ImageDraw
 
 def create_all_sample_images():
     output_dirs = [
-        "scripts/sample_test_images",
+        "data/sample_test_images",
         "client/public/sample_images",
         "client/out/sample_images"
     ]
+
     for d in output_dirs:
         os.makedirs(d, exist_ok=True)
 
@@ -105,10 +106,11 @@ def create_all_sample_images():
 
 def save_and_encode(filename, img, data_dict):
     paths = [
-        os.path.join("scripts/sample_test_images", filename),
+        os.path.join("data/sample_test_images", filename),
         os.path.join("client/public/sample_images", filename),
         os.path.join("client/out/sample_images", filename),
     ]
+
     for p in paths:
         img.save(p)
 

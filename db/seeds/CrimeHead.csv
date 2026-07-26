@@ -1,0 +1,6 @@
+CrimeMajorHeadID,CrimeMinorHeadID,MajorHeadName,MinorHeadName
+1,101,OFFENCES AGAINST PROPERTY,Robbery / Extortion
+1,102,OFFENCES AGAINST PROPERTY,Theft / Vehicle Snatching
+2,201,OFFENCES AGAINST PERSON,Murder / Culpable Homicide
+3,301,CYBER CRIME,Financial Fraud / Phishing
+4,104,WOMEN SAFETY,Stalking / Harassment

@@ -39,11 +39,13 @@
 - **📡 Threat Vectors Time Machine (GIS Map)**: Spatio-temporal risk forecasting powered by XGBoost / ST-GNN with an interactive `+72h` time machine slider and beat threat profiling.
 - **🔮 Spectre Neural Matrix**: Interactive multi-hop entity relationship graph (Vehicles, IMEIs, Mule Accounts, Suspects, FIRs) using NetworkX syndicate algorithms.
 - **⚡ What-If Tactical Advisory Panel**: Counterfactual simulation engine evaluating patrol deployments, ANPR checkpoints, and predicting up to `64%` risk reduction.
-- **💬 NammaRaksha Law Enforcement Copilot**: Bilingual (ಕನ್ನಡ ⇄ English) Zia GraphRAG AI brief generator trained on Bharatiya Nyaya Sanhita (BNS 2023) legal codes.
+- **💬 NammaRaksha Law Enforcement Copilot**: Powered by **Zoho QuickML GLM-4.7-Flash (30B MoE)** and parallel agent fan-out. Bilingual (ಕನ್ನಡ ⇄ English) Zia GraphRAG brief generator trained on Bharatiya Nyaya Sanhita (BNS 2023) legal codes with live thinking traces.
+- **🗄️ Full 12-Table Police FIR ER Schema in Zoho Catalyst Data Store**: Native NoSQL document storage for `CaseMaster`, `Accused`, `Victim`, `Person`, `ActSectionAssociation`, `ChargesheetDetails`, `PoliceStation`, `CrimeHead`, `Employee`, `AuditLog`, `OperationPlan`, and `DashboardPreset`.
 - **🔬 Forensic Triage & Contradiction Lab**: Multi-agent report dissection engine (Pathology, Digital, Trace Evidence) identifying timeline discrepancies between witness statements and medical autopsy windows.
 - **🚁 IoT Tactical Surveillance & Traffic Control**: Live telemetry feeds for SkyWatch FLIR Drones, CCTV ANPR Nodes, ShotSpotter Acoustic Sensors, and Emergency Green Corridor Traffic Signal Automation.
 - **🛡️ Public Vigilance & Self-Defence Portal**: Emergency Police SOS Helpline (112 / 1930), self-defence & cyber fraud guides, privacy FAQs, and system settings.
 - **🌓 Dual Theme Support (Light ☀️ & Dark 🌙)**: High-contrast, glassmorphic frosted UI with instant theme switching.
+
 
 ---
 

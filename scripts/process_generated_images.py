@@ -14,10 +14,11 @@ def process_generated_images():
     }
 
     target_dirs = [
-        "scripts/sample_test_images",
+        "data/sample_test_images",
         "client/public/sample_images",
         "client/out/sample_images"
     ]
+
     for d in target_dirs:
         os.makedirs(d, exist_ok=True)
 

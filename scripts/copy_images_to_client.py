@@ -2,7 +2,8 @@ import os
 import shutil
 
 def copy_sample_images_to_client():
-    src_dir = "scripts/sample_test_images"
+    src_dir = "data/sample_test_images"
+
     dest_dir = "client/public/sample_images"
     os.makedirs(dest_dir, exist_ok=True)
 

@@ -12,14 +12,14 @@ Write-Host "Target URL: $BaseUrl" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 # Ensure test images exist
-if (-not (Test-Path "scripts/sample_test_images/ocr_test_plate.png")) {
+if (-not (Test-Path "data/sample_test_images/ocr_test_plate.png")) {
     Write-Host "[*] Generating sample test images..." -ForegroundColor Yellow
     python scripts/generate_test_images.py
 }
 
 # 1. Test Zia OCR Endpoint (/ocr)
 Write-Host "`n[1/3] Testing Zia OCR (Optical Character Recognition)..." -ForegroundColor Yellow
-$ocrImagePath = (Resolve-Path "scripts/sample_test_images/document_test.png").Path
+$ocrImagePath = (Resolve-Path "data/sample_test_images/document_test.png").Path
 
 try {
     $response = curl.exe -s -X POST "$BaseUrl/ocr" `
@@ -34,7 +34,7 @@ try {
 
 # 2. Test Zia Barcode Scanner Endpoint (/barcode)
 Write-Host "`n[2/3] Testing Zia Barcode Scanner..." -ForegroundColor Yellow
-$barcodeImagePath = (Resolve-Path "scripts/sample_test_images/barcode_test.png").Path
+$barcodeImagePath = (Resolve-Path "data/sample_test_images/barcode_test.png").Path
 
 try {
     $response = curl.exe -s -X POST "$BaseUrl/barcode" `
@@ -49,7 +49,7 @@ try {
 
 # 3. Test Zia PAN Card OCR Endpoint (/pan)
 Write-Host "`n[3/3] Testing Zia PAN Card OCR..." -ForegroundColor Yellow
-$plateImagePath = (Resolve-Path "scripts/sample_test_images/ocr_test_plate.png").Path
+$plateImagePath = (Resolve-Path "data/sample_test_images/ocr_test_plate.png").Path
 
 try {
     $response = curl.exe -s -X POST "$BaseUrl/pan" `

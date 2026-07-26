@@ -18,7 +18,8 @@ async function testZiaServicesDirect() {
   console.log('==========================================================');
 
   // Check sample images
-  const sampleDir = path.join(__dirname, 'sample_test_images');
+  const sampleDir = path.join(__dirname, '../data/sample_test_images');
+
   const ocrPath = path.join(sampleDir, 'document_test.png');
   const barcodePath = path.join(sampleDir, 'barcode_test.png');
 

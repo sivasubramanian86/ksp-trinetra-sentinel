@@ -1,0 +1,2 @@
+EmployeeID,PresetName,Module,Filters,IsDefault
+501,Daily DG Overview,DG_SNAPSHOT,"{""zone"":""Bengaluru East"",""timeframe"":""24h""}",True

@@ -35,13 +35,15 @@
 
 | Service | Runtime | Hosting | Purpose |
 |---|---|---|---|
-| `api_gateway/` | Node.js 18 (Express) | Catalyst Advanced I/O | REST API + MCP Orchestrator + Copilot |
+| `api_gateway/` | Node.js 18 (Express) | Catalyst Advanced I/O | REST API + Concurrent Sub-Agent Orchestrator + Zia Copilot |
 | `client/` | Next.js 14 (Static Export) | Catalyst Static Hosting | Officer Command Center UI |
 | `backend/python-services/` | Python 3.11 (FastAPI) | Catalyst Advanced I/O | ML Analytics + Forensics Triage |
 | **Zoho QuickML GLM-4.7-Flash** | **GLM-4.7 MoE (30B IT)** | **Zoho QuickML (India DC)** | **Zia Generative Copilot & Chain-of-Thought Reasoning** |
-| PostgreSQL + PostGIS | Managed DB | External (supabase/self-hosted) | FIR ER Schema source of truth |
-| Catalyst Datastore | Zoho-managed NoSQL | Catalyst Datastore | AuditLog + OperationPlan (dual-write) |
+| PostgreSQL + PostGIS | Managed DB | External (supabase/self-hosted) | FIR ER Schema source of truth (relational) |
+| **Catalyst Datastore** | **Zoho NoSQL Document Store** | **Catalyst Datastore** | **Full 12-Table FIR ER Schema (`CaseMaster`, `Accused`, `Victim`, `Person`, `ActSectionAssociation`, `ChargesheetDetails`, `PoliceStation`, `CrimeHead`, `Employee`, `AuditLog`, `OperationPlan`, `DashboardPreset`)** |
 | Catalyst Cache | In-memory (5 min TTL) | Catalyst Cache | Hotspot forecasts, DG snapshot |
+| Data Storage | Local & Stratus | `data/sample_test_images` | Sample evidence & test files |
+
 
 ## Request Lifecycle — Copilot Query
 
