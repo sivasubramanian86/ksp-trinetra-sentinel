@@ -5,11 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node -e \"require('fs').copyFileSync('client-package.json', 'out/client-package.json')\"",
-
+    "build:mobile": "next build && npx cap sync",
+    "cap:sync": "npx cap sync",
+    "cap:add:android": "npx cap add android",
+    "cap:add:ios": "npx cap add ios",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@capacitor/android": "^8.4.2",
+    "@capacitor/cli": "^8.4.2",
+    "@capacitor/core": "^8.4.2",
+    "@capacitor/ios": "^8.4.2",
     "clsx": "^2.1.1",
     "ksp-trinetra-sentinel": "file:..",
     "leaflet": "^1.9.4",

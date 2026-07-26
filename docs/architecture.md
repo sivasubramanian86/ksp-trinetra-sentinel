@@ -43,6 +43,8 @@
 | **Catalyst Datastore** | **Zoho NoSQL Document Store** | **Catalyst Datastore** | **Full 12-Table FIR ER Schema (`CaseMaster`, `Accused`, `Victim`, `Person`, `ActSectionAssociation`, `ChargesheetDetails`, `PoliceStation`, `CrimeHead`, `Employee`, `AuditLog`, `OperationPlan`, `DashboardPreset`)** |
 | Catalyst Cache | In-memory (5 min TTL) | Catalyst Cache | Hotspot forecasts, DG snapshot |
 | Data Storage | Local & Stratus | `data/sample_test_images` | Sample evidence & test files |
+| **Native Mobile Apps** | **Capacitor Cross-Platform** | **Android APK / iOS IPA** | **Patrol Officer Handheld App (Camera, Voice, Geolocation)** |
+
 
 
 ## Request Lifecycle — Copilot Query

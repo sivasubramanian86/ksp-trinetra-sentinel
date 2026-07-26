@@ -111,7 +111,40 @@ Build static Next.js production bundle and deploy to Zoho Catalyst Cloud:
 
 ---
 
+## 📱 Mobile App Deployment (Android APK & iOS IPA)
+
+KSP Trinetra Sentinel includes native cross-platform mobile support via **Capacitor**.
+
+### 1. Build Mobile Web Bundle & Sync Native Assets
+```bash
+cd client
+npm run build:mobile
+```
+
+### 2. Generate Android APK / AAB Binary (Android Studio)
+```bash
+# Open Android Studio project directly
+npx cap open android
+```
+In Android Studio:
+* Click **Build → Build Bundle(s) / APK(s) → Build APK(s)**
+* Binary Output: `client/android/app/build/outputs/apk/debug/app-debug.apk`
+
+### 3. Generate iOS IPA Binary (Xcode - macOS)
+```bash
+# Add iOS project files (macOS only)
+npx cap add ios
+
+# Open Xcode project directly
+npx cap open ios
+```
+In Xcode:
+* Select Product → Archive → Distribute App → Development / Enterprise IPA.
+
+---
+
 ## 🔒 Security & Compliance
+
 
 - **Zoho Catalyst Vault**: Secure environment variable and secret token management (Google Secret Manager equivalent).
 - **DPDP Act 2023 Compliance**: PII scrubbing (phone numbers, Aadhaar, PAN) via salted SHA-256 hashing.
