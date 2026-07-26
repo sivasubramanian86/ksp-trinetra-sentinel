@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Layers, MapPin, Camera, ShieldAlert, Satellite, Compass } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Compass, Satellite, Layers, ZoomIn, ZoomOut, AlertTriangle, ShieldCheck, Camera } from "lucide-react";
 
 interface LeafletHeatMapProps {
   language: "en" | "kn";
@@ -37,202 +37,260 @@ export const LeafletHeatMap: React.FC<LeafletHeatMapProps> = ({
   selectedBeatId,
   onSelectBeat,
 }) => {
-  const [mapStyle, setMapStyle] = useState<"dark" | "satellite" | "street">("dark");
+  const mapRef = useRef<HTMLDivElement>(null);
+  const leafletMapRef = useRef<any>(null);
+  const layersGroupRef = useRef<any>(null);
+
+  const [mapStyle, setMapStyle] = useState<"dark" | "satellite" | "streets">("dark");
   const [activeLayers, setActiveLayers] = useState({
+    heatmap: true,
     incidents: true,
     patrols: true,
-    cctv: true,
-    heatmap: true,
   });
 
   const toggleLayer = (layer: keyof typeof activeLayers) => {
     setActiveLayers((prev) => ({ ...prev, [layer]: !prev[layer] }));
   };
 
-  // Convert GPS coordinates (Bengaluru bbox approx) to relative canvas coordinates
-  // Lat: 12.91 -> 12.99, Lng: 77.56 -> 77.76
-  const getRelativePosition = (lat: number, lng: number) => {
-    const minLat = 12.9100;
-    const maxLat = 12.9900;
-    const minLng = 77.5500;
-    const maxLng = 77.7700;
+  // Initialize Leaflet Map on client mount
+  useEffect(() => {
+    if (typeof window === "undefined" || !mapRef.current) return;
+    const container = mapRef.current;
 
-    const y = ((maxLat - lat) / (maxLat - minLat)) * 100;
-    const x = ((lng - minLng) / (maxLng - minLng)) * 100;
+    // Dynamically import Leaflet
+    import("leaflet").then((L) => {
+      if (leafletMapRef.current) return; // Prevent double init
 
-    return {
-      top: `${Math.max(10, Math.min(90, y))}%`,
-      left: `${Math.max(10, Math.min(90, x))}%`,
+      // Initialize map instance centered on Bengaluru
+      const map = L.map(container, {
+        center: [12.9716, 77.5946],
+        zoom: 12,
+        zoomControl: false,
+        attributionControl: false,
+      });
+
+
+      leafletMapRef.current = map;
+      layersGroupRef.current = L.layerGroup().addTo(map);
+
+      // Add Zoom Control at top-left
+      L.control.zoom({ position: "topleft" }).addTo(map);
+
+      // Set default base tile
+      updateTileLayer(L, map, "dark");
+      renderMapElements(L);
+    });
+
+    return () => {
+      if (leafletMapRef.current) {
+        leafletMapRef.current.remove();
+        leafletMapRef.current = null;
+      }
     };
+  }, []);
+
+  // Update Map Tile layer when tile mode changes
+  const updateTileLayer = (L: any, map: any, style: "dark" | "satellite" | "streets") => {
+    if (!map) return;
+
+    // Remove existing tile layers
+    map.eachLayer((layer: any) => {
+      if (layer instanceof L.TileLayer) {
+        map.removeLayer(layer);
+      }
+    });
+
+    let url = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+    let subdomains = "abcd";
+
+    if (style === "satellite") {
+      url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+      subdomains = "abc";
+    } else if (style === "streets") {
+      url = "https://{s}.tile.openstreetmap.org/{z}/{y}/{x}.png";
+      subdomains = "abc";
+    }
+
+    L.tileLayer(url, {
+      subdomains,
+      maxZoom: 18,
+    }).addTo(map);
   };
 
+  // Switch base tile style
+  const handleStyleChange = (style: "dark" | "satellite" | "streets") => {
+    setMapStyle(style);
+    if (typeof window !== "undefined" && leafletMapRef.current) {
+      import("leaflet").then((L) => {
+        updateTileLayer(L, leafletMapRef.current, style);
+      });
+    }
+  };
+
+  // Render/Refresh heatmap circles and markers
+  const renderMapElements = (L: any) => {
+    if (!layersGroupRef.current) return;
+
+    layersGroupRef.current.clearLayers();
+
+    HOTSPOTS.forEach((pt) => {
+      const isSelected = pt.id === selectedBeatId;
+      const dynamicRisk = Math.min(1.0, pt.risk * (1 + (timeOffsetHours / 72) * 0.35));
+
+      // 1. Draw Heatmap Glowing Density Circles
+      if (activeLayers.heatmap) {
+        const radiusMeters = 800 + dynamicRisk * 1200;
+        const color = dynamicRisk >= 0.75 ? "#ef4444" : dynamicRisk >= 0.5 ? "#f59e0b" : "#10b981";
+
+        const circle = L.circle([pt.lat, pt.lng], {
+          radius: radiusMeters,
+          color: color,
+          weight: 1.5,
+          opacity: 0.8,
+          fillColor: color,
+          fillOpacity: 0.35,
+        });
+
+        circle.addTo(layersGroupRef.current);
+      }
+
+      // 2. Draw Interactive Hotspot Markers
+      if (activeLayers.incidents) {
+        const markerBg = isSelected
+          ? "#ef4444"
+          : dynamicRisk >= 0.75
+          ? "#dc2626"
+          : dynamicRisk >= 0.5
+          ? "#d97706"
+          : "#059669";
+
+        const labelText = language === "kn" ? pt.nameKn : pt.name;
+        const riskPct = (dynamicRisk * 100).toFixed(0);
+
+        const customIcon = L.divIcon({
+          className: "custom-leaflet-marker",
+          html: `
+            <div style="
+              background: ${markerBg};
+              color: white;
+              padding: 4px 8px;
+              border-radius: 20px;
+              border: 2px solid white;
+              font-family: monospace;
+              font-weight: 800;
+              font-size: 11px;
+              box-shadow: 0 0 15px ${markerBg};
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              white-space: nowrap;
+              cursor: pointer;
+            ">
+              <span>📍 ${labelText}</span>
+              <span style="background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 10px;">${riskPct}%</span>
+            </div>
+          `,
+          iconSize: [120, 30],
+          iconAnchor: [60, 15],
+        });
+
+        const marker = L.marker([pt.lat, pt.lng], { icon: customIcon });
+
+        // Bind popup info
+        marker.bindPopup(`
+          <div style="font-family: sans-serif; padding: 4px; color: #0f172a;">
+            <h4 style="margin: 0 0 4px 0; font-weight: 800;">${pt.name}</h4>
+            <p style="margin: 0 0 4px 0; font-size: 12px; color: #64748b;">Beat ID: ${pt.id}</p>
+            <p style="margin: 0; font-size: 12px; font-weight: 700; color: ${markerBg};">
+              Risk: ${riskPct}% (${pt.type})
+            </p>
+            <hr style="margin: 6px 0; border: 0; border-top: 1px solid #e2e8f0;"/>
+            <p style="margin: 0; font-size: 11px;">📹 Active CCTV: ${pt.cctvActive} units</p>
+            <p style="margin: 0; font-size: 11px;">🚓 Patrol Unit: ${pt.patrols}</p>
+          </div>
+        `);
+
+        marker.on("click", () => {
+          onSelectBeat(pt.id);
+        });
+
+        marker.addTo(layersGroupRef.current);
+      }
+    });
+  };
+
+  // Re-render markers when time offset, selected beat, or layers change
+  useEffect(() => {
+    if (typeof window !== "undefined" && leafletMapRef.current) {
+      import("leaflet").then((L) => {
+        renderMapElements(L);
+      });
+    }
+  }, [timeOffsetHours, selectedBeatId, activeLayers, language]);
+
   return (
-    <div className="relative w-full h-full min-h-[420px] rounded-2xl overflow-hidden bg-slate-950 border border-cyan-500/30 flex flex-col justify-between p-4 font-sans select-none">
-      {/* ── MAP TILE BASE BACKGROUND ── */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-90">
-        {mapStyle === "satellite" ? (
-          <div
-            className="w-full h-full bg-cover bg-center filter brightness-90 contrast-125"
-            style={{
-              backgroundImage:
-                "url('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/13/3793/5879')",
-            }}
-          ></div>
-        ) : mapStyle === "street" ? (
-          <div className="w-full h-full bg-[#1b2230] bg-[radial-gradient(#334155_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
-        ) : (
-          /* Dark Cyber Vector Grid Map */
-          <div className="w-full h-full bg-[#070b19] bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:32px_32px]">
-            {/* Simulated Road Lines */}
-            <svg className="w-full h-full opacity-30 stroke-cyan-500/40 fill-none stroke-[1.5]">
-              <path d="M 50,0 Q 200,200 400,100 T 800,500" />
-              <path d="M 0,300 C 300,100 500,400 900,250" />
-              <path d="M 200,500 L 600,0" />
-              <circle cx="50%" cy="45%" r="180" className="stroke-cyan-400/20 fill-cyan-950/10 stroke-dashed" />
-            </svg>
-          </div>
-        )}
-      </div>
+    <div className="relative w-full h-full min-h-[440px] rounded-2xl overflow-hidden bg-slate-950 border border-cyan-500/30 flex flex-col justify-between p-2 font-sans select-none">
+      {/* ── TOP FLOATING CONTROL BAR ── */}
+      <div className="absolute top-4 right-4 z-[500] flex flex-wrap items-center gap-2 bg-slate-900/90 backdrop-blur-md px-3 py-2 rounded-xl border border-cyan-500/30 shadow-2xl text-xs">
+        <span className="font-extrabold text-cyan-300 font-mono flex items-center space-x-1">
+          <Compass className="w-4 h-4 text-cyan-400 animate-spin-slow" />
+          <span className="hidden sm:inline">LIVE LEAFLET GIS</span>
+        </span>
 
-      {/* ── TOP MAP CONTROLS & LAYER BAR ── */}
-      <div className="relative z-20 flex flex-wrap items-center justify-between gap-2 bg-slate-900/90 backdrop-blur-md px-4 py-2.5 rounded-xl border border-cyan-500/30 text-xs shadow-xl">
-        <div className="flex items-center space-x-3">
-          <span className="font-extrabold text-cyan-300 font-mono flex items-center space-x-1.5">
-            <Compass className="w-4 h-4 text-cyan-400 animate-spin-slow" />
-            <span>GIS THREAT HEATMAP</span>
-          </span>
-
-          <div className="hidden sm:flex items-center space-x-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
-            <button
-              onClick={() => setMapStyle("dark")}
-              className={`px-2.5 py-1 rounded text-[10px] font-bold ${
-                mapStyle === "dark" ? "bg-cyan-600 text-white" : "text-slate-400 hover:text-white"
-              }`}
-            >
-              DARK VECTOR
-            </button>
-            <button
-              onClick={() => setMapStyle("satellite")}
-              className={`px-2.5 py-1 rounded text-[10px] font-bold flex items-center space-x-1 ${
-                mapStyle === "satellite" ? "bg-cyan-600 text-white" : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Satellite className="w-3 h-3" />
-              <span>SATELLITE</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Layer Toggles */}
-        <div className="flex items-center space-x-1.5">
+        {/* Tile Style Toggles */}
+        <div className="flex items-center space-x-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
           <button
-            onClick={() => toggleLayer("heatmap")}
-            className={`px-2.5 py-1 rounded-lg font-bold border transition-all text-[11px] ${
-              activeLayers.heatmap
-                ? "bg-red-500/20 text-red-300 border-red-500/60"
-                : "bg-slate-950 text-slate-500 border-slate-800"
+            onClick={() => handleStyleChange("dark")}
+            className={`px-2.5 py-1 rounded text-[10px] font-bold ${
+              mapStyle === "dark" ? "bg-cyan-600 text-white" : "text-slate-400 hover:text-white"
             }`}
           >
-            🔥 HEATMAP
+            DARK MAP
           </button>
           <button
-            onClick={() => toggleLayer("incidents")}
-            className={`px-2.5 py-1 rounded-lg font-bold border transition-all text-[11px] ${
-              activeLayers.incidents
-                ? "bg-amber-500/20 text-amber-300 border-amber-500/60"
-                : "bg-slate-950 text-slate-500 border-slate-800"
+            onClick={() => handleStyleChange("satellite")}
+            className={`px-2.5 py-1 rounded text-[10px] font-bold flex items-center space-x-1 ${
+              mapStyle === "satellite" ? "bg-cyan-600 text-white" : "text-slate-400 hover:text-white"
             }`}
           >
-            🚨 INCIDENTS
+            <Satellite className="w-3 h-3" />
+            <span>SATELLITE</span>
           </button>
           <button
-            onClick={() => toggleLayer("patrols")}
-            className={`px-2.5 py-1 rounded-lg font-bold border transition-all text-[11px] ${
-              activeLayers.patrols
-                ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/60"
-                : "bg-slate-950 text-slate-500 border-slate-800"
+            onClick={() => handleStyleChange("streets")}
+            className={`px-2.5 py-1 rounded text-[10px] font-bold ${
+              mapStyle === "streets" ? "bg-cyan-600 text-white" : "text-slate-400 hover:text-white"
             }`}
           >
-            🚓 PATROLS
+            STREETS
           </button>
         </div>
+
+        {/* Heatmap Layer Toggle */}
+        <button
+          onClick={() => toggleLayer("heatmap")}
+          className={`px-2.5 py-1 rounded-lg font-bold border transition-all text-[10px] ${
+            activeLayers.heatmap
+              ? "bg-red-500/20 text-red-300 border-red-500/60"
+              : "bg-slate-950 text-slate-500 border-slate-800"
+          }`}
+        >
+          🔥 HEATMAP
+        </button>
       </div>
 
-      {/* ── HEATMAP RADIAL OVERLAYS & HOTSPOT MARKERS ── */}
-      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-auto">
-        {HOTSPOTS.map((pt) => {
-          const pos = getRelativePosition(pt.lat, pt.lng);
-          const isSelected = selectedBeatId === pt.id;
-          const dynamicRisk = Math.min(1.0, pt.risk * (1 + (timeOffsetHours / 72) * 0.35));
+      {/* ── REAL LEAFLET MAP DOM CONTAINER ── */}
+      <div ref={mapRef} className="w-full h-full min-h-[440px] z-[100] rounded-xl overflow-hidden" />
 
-          return (
-            <React.Fragment key={pt.id}>
-              {/* Glowing Heatmap Density Radial Aura (When Heatmap Layer Active) */}
-              {activeLayers.heatmap && (
-                <div
-                  className="absolute transform -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none transition-all duration-700 filter blur-xl"
-                  style={{
-                    top: pos.top,
-                    left: pos.left,
-                    width: `${Math.max(100, dynamicRisk * 220)}px`,
-                    height: `${Math.max(100, dynamicRisk * 220)}px`,
-                    background:
-                      dynamicRisk >= 0.75
-                        ? "radial-gradient(circle, rgba(239, 68, 68, 0.75) 0%, rgba(245, 158, 11, 0.45) 45%, rgba(0, 0, 0, 0) 75%)"
-                        : dynamicRisk >= 0.5
-                        ? "radial-gradient(circle, rgba(245, 158, 11, 0.7) 0%, rgba(234, 179, 8, 0.4) 45%, rgba(0, 0, 0, 0) 75%)"
-                        : "radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, rgba(6, 182, 212, 0.3) 45%, rgba(0, 0, 0, 0) 75%)",
-                  }}
-                />
-              )}
-
-              {/* Interactive Pin Marker */}
-              <div
-                onClick={() => onSelectBeat(pt.id)}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group"
-                style={{ top: pos.top, left: pos.left }}
-              >
-                <div
-                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full border shadow-2xl transition-all ${
-                    isSelected
-                      ? "bg-red-600 text-white border-white scale-110 ring-4 ring-red-500/50"
-                      : dynamicRisk >= 0.75
-                      ? "bg-red-950/90 text-red-300 border-red-500/80 hover:scale-105"
-                      : "bg-slate-900/90 text-cyan-300 border-cyan-500/60 hover:scale-105"
-                  }`}
-                >
-                  <MapPin className={`w-3.5 h-3.5 ${dynamicRisk >= 0.75 ? "text-red-400 animate-bounce" : "text-cyan-400"}`} />
-                  <span className="text-[11px] font-black truncate max-w-[120px]">
-                    {language === "kn" ? pt.nameKn : pt.name}
-                  </span>
-                  <span className="text-[10px] font-mono font-bold bg-black/50 px-1.5 py-0.5 rounded">
-                    {(dynamicRisk * 100).toFixed(0)}%
-                  </span>
-                </div>
-
-                {/* Hover Popover Card */}
-                <div className="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-3 rounded-xl bg-slate-900/95 border border-cyan-500/40 text-xs shadow-2xl z-30 pointer-events-none">
-                  <p className="font-extrabold text-white mb-1">{pt.name}</p>
-                  <p className="text-[10px] text-cyan-400 font-mono">RISK: {(dynamicRisk * 100).toFixed(1)}% | {pt.type}</p>
-                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 flex justify-between text-[10px] text-slate-400">
-                    <span>📹 CCTV: {pt.cctvActive}</span>
-                    <span>🚓 {pt.patrols}</span>
-                  </div>
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
-      </div>
-
-      {/* ── BOTTOM MAP LEGEND & DATA OVERLAY ── */}
-      <div className="relative z-20 flex items-center justify-between bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-xl border border-cyan-500/30 text-[11px] shadow-xl">
-        <div className="flex items-center space-x-3 font-mono font-bold text-slate-300">
-          <span className="text-slate-400">MAP AREA:</span>
-          <span className="text-cyan-300">CENTRAL BENGALURU METRO</span>
+      {/* ── BOTTOM MAP LEGEND & REGION OVERLAY ── */}
+      <div className="absolute bottom-4 left-4 right-4 z-[500] pointer-events-none flex items-center justify-between bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-xl border border-cyan-500/30 text-xs shadow-xl">
+        <div className="flex items-center space-x-3 font-mono font-bold text-slate-300 pointer-events-auto">
+          <span className="text-slate-400">REGION:</span>
+          <span className="text-cyan-300">BENGALURU CITY POLICE GRID</span>
+          <span className="text-slate-500 hidden md:inline">| LAT: 12.9716, LON: 77.5946</span>
         </div>
 
-        <div className="flex items-center space-x-3 text-[10px] font-mono font-bold">
+        <div className="flex items-center space-x-3 text-[10px] font-mono font-bold pointer-events-auto">
           <span className="flex items-center space-x-1 text-red-400">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
             <span>HIGH RISK</span>
